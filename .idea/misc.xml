@@ -4,12 +4,14 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/castelli.gabriele/AndroidStudioProjects/pctorist/app/src/main/res/layout/activity_main.xml" value="0.3578125" />
-        <entry key="..\:/Users/roscia.francesco/Documents/GitHub/PctoRist/app/src/main/res/layout/activity_main.xml" value="0.358695652173913" />
-        <entry key="..\:/Users/roscia.francesco/Documents/GitHub/PctoRist/app/src/main/res/layout/primo_frame.xml" value="0.33" />
+        <entry key="..\:/Users/castelli.gabriele/AndroidStudioProjects/pctorist/app/src/main/res/layout/activity_principale.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/castelli.gabriele/AndroidStudioProjects/pctorist/app/src/main/res/layout/fragment_home.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/castelli.gabriele/AndroidStudioProjects/pctorist/app/src/main/res/layout/fragment_inforist.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/castelli.gabriele/AndroidStudioProjects/pctorist/app/src/main/res/layout/fragment_ordini.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/castelli.gabriele/AndroidStudioProjects/pctorist/app/src/main/res/menu/bottom_navigation_menu.xml" value="2.55" />
       </map>
     </option>
   </component>
-  <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>

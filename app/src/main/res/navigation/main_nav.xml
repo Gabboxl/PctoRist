@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/main_nav"
+        app:startDestination="@id/homeFragment">
+
+    <fragment
+            android:id="@+id/homeFragment"
+            android:name="it.itispininfarina.pctorist.HomeFragment"
+            android:label="fragment_pinned"
+            tools:layout="@layout/fragment_home" />
+    <fragment
+            android:id="@+id/sessioneFragment"
+            android:name="it.itispininfarina.pctorist.SessioneFragment"
+            android:label="fragment_all"
+            tools:layout="@layout/fragment_sessione" />
+    <fragment
+            android:id="@+id/inforistFragment"
+            android:name="it.itispininfarina.pctorist.InforistFragment"
+            android:label="fragment_downloads"
+            tools:layout="@layout/fragment_inforist" />
+</navigation>
