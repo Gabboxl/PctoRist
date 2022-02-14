@@ -8,9 +8,11 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Spinner
+import android.widget.Toast
+import android.widget.Toast.*
 
 
-class OrdiniFragment : Fragment(), AdapterView.OnItemSelectedListener  {
+class OrdiniFragment : Fragment()  {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,9 +26,9 @@ class OrdiniFragment : Fragment(), AdapterView.OnItemSelectedListener  {
         // Inflate the layout for this fragment
         val layout = inflater.inflate(R.layout.fragment_ordini, container, false)
 
-        //adattamento dello spinner
+        //adattamento dello spinner MARINARA
 
-        val spinner: Spinner= layout.findViewById(R.id.spinnerMarinara)
+        val spinner: Spinner = layout.findViewById(R.id.spinnerMarinara)
 
         ArrayAdapter.createFromResource(
             requireContext(),
@@ -42,16 +44,33 @@ class OrdiniFragment : Fragment(), AdapterView.OnItemSelectedListener  {
         //FINE ADATTAMENTO SPINNER
 
 
+        spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            //variabili da inizializzare per poi essere utilizzate in modo globale nel codice
+
+            override fun onItemSelected(
+                parent: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
+                val quantity = parent?.getItemAtPosition(position)
+                Toast.makeText(context, "$quantity", Toast.LENGTH_SHORT).show()
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+            }
+        }
+
+        //FINE SPINNER MARINARA
+
+
+
+
+
         return layout
     }
 
-    override fun onItemSelected(parent: AdapterView<*>?, view: View?, pos: Int, id: Long) {
-        val quantity = parent?.getItemAtPosition(pos)
-    }
 
-    override fun onNothingSelected(p0: AdapterView<*>?) {
-        TODO("Not yet implemented")
-    }
 
 
 }

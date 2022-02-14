@@ -6,10 +6,15 @@
         <entry key="..\:/Users/castelli.gabriele/AndroidStudioProjects/pctorist/app/src/main/res/layout/activity_main.xml" value="0.3578125" />
         <entry key="..\:/Users/stoicescu.marian/Documents/GitHub/PctoRist/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.297" />
         <entry key="..\:/Users/stoicescu.marian/Documents/GitHub/PctoRist/app/src/main/res/layout/activity_main.xml" value="0.2966485507246377" />
+        <entry key="..\:/Users/stoicescu.marian/Documents/GitHub/PctoRist/app/src/main/res/layout/fragment_home.xml" value="0.15433946130825138" />
+        <entry key="..\:/Users/stoicescu.marian/Documents/GitHub/PctoRist/app/src/main/res/layout/fragment_inforist.xml" value="0.15433946130825138" />
         <entry key="..\:/Users/stoicescu.marian/Documents/GitHub/PctoRist/app/src/main/res/layout/fragment_login.xml" value="0.2969174977334542" />
         <entry key="..\:/Users/stoicescu.marian/Documents/GitHub/PctoRist/app/src/main/res/layout/fragment_ordini.xml" value="0.2969174977334542" />
+        <entry key="..\:/Users/stoicescu.marian/Documents/GitHub/PctoRist/app/src/main/res/layout/fragment_registra.xml" value="0.15433946130825138" />
+        <entry key="..\:/Users/stoicescu.marian/Documents/GitHub/PctoRist/app/src/main/res/layout/fragment_sessione.xml" value="0.15433946130825138" />
         <entry key="..\:/Users/stoicescu.marian/Documents/GitHub/PctoRist/app/src/main/res/layout/primo_frame.xml" value="0.2966485507246377" />
         <entry key="..\:/Users/stoicescu.marian/Documents/GitHub/PctoRist/app/src/main/res/layout/sezione_ordini.xml" value="0.25" />
+        <entry key="..\:/Users/stoicescu.marian/Documents/GitHub/PctoRist/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.3009833262077811" />
       </map>
     </option>
   </component>

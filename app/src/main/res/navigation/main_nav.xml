@@ -12,9 +12,9 @@
             tools:layout="@layout/fragment_home" />
     <fragment
             android:id="@+id/sessioneFragment"
-            android:name="it.itispininfarina.pctorist.SessioneFragment"
+            android:name="it.itispininfarina.pctorist.OrdiniFragment"
             android:label="fragment_all"
-            tools:layout="@layout/fragment_sessione" />
+            tools:layout="@layout/fragment_ordini" />
     <fragment
             android:id="@+id/inforistFragment"
             android:name="it.itispininfarina.pctorist.InforistFragment"
