@@ -8,19 +8,19 @@
             <LayoutPositions>
               <option name="myPositions">
                 <map>
-                  <entry key="allFragment">
+                  <entry key="homeFragment">
                     <value>
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="256" />
+                            <option name="x" value="12" />
                             <option name="y" value="12" />
                           </Point>
                         </option>
                       </LayoutPositions>
                     </value>
                   </entry>
-                  <entry key="downloadsFragment">
+                  <entry key="inforistFragment">
                     <value>
                       <LayoutPositions>
                         <option name="myPosition">
@@ -32,12 +32,12 @@
                       </LayoutPositions>
                     </value>
                   </entry>
-                  <entry key="pinnedFragment">
+                  <entry key="sessioneFragment">
                     <value>
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="12" />
+                            <option name="x" value="256" />
                             <option name="y" value="12" />
                           </Point>
                         </option>

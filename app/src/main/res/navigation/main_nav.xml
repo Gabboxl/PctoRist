@@ -8,16 +8,16 @@
     <fragment
             android:id="@+id/homeFragment"
             android:name="it.itispininfarina.pctorist.HomeFragment"
-            android:label="fragment_pinned"
+            android:label="Menu"
             tools:layout="@layout/fragment_home" />
     <fragment
             android:id="@+id/sessioneFragment"
             android:name="it.itispininfarina.pctorist.SessioneFragment"
-            android:label="fragment_all"
+            android:label="Ordina"
             tools:layout="@layout/fragment_sessione" />
     <fragment
             android:id="@+id/inforistFragment"
             android:name="it.itispininfarina.pctorist.InforistFragment"
-            android:label="fragment_downloads"
+            android:label="Info ristorante"
             tools:layout="@layout/fragment_inforist" />
 </navigation>
