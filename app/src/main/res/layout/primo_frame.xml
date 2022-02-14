@@ -9,7 +9,7 @@
         android:id="@+id/textView"
         android:layout_width="0dp"
         android:layout_height="48dp"
-        android:layout_marginTop="236dp"
+        android:layout_marginTop="292dp"
         android:fontFamily="@font/noto_sans"
         android:gravity="center"
         android:text="Nome Ristorante"
