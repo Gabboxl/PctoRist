@@ -56,8 +56,8 @@ class OrdiniFragment : Fragment()  {
                 position: Int,
                 id: Long
             ) {
-                val quantity = parent?.getItemAtPosition(position)
-                Toast.makeText(context, "$quantity", Toast.LENGTH_SHORT).show()
+                val quantityMarinara = parent?.getItemAtPosition(position)
+                Toast.makeText(context, "$quantityMarinara", Toast.LENGTH_SHORT).show()
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -66,8 +66,40 @@ class OrdiniFragment : Fragment()  {
 
         //FINE SPINNER MARINARA
 
+        //-------------------------------------------------------------------------------------------------------------------
 
+        //INIZIO SPINNER MARGHERITA
+        val spinnerMargherita: Spinner = layout.findViewById(R.id.spinnerMargherita)
 
+        ArrayAdapter.createFromResource(
+            requireContext(),
+            R.array.quantità,
+            android.R.layout.simple_spinner_item
+        ).also { adapter ->
+
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+
+            spinnerMargherita.adapter = adapter
+
+        }
+        //FINE ADATTAMENTO SPINNER
+
+        spinnerMargherita.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            //variabili da inizializzare per poi essere utilizzate in modo globale nel codice
+
+            override fun onItemSelected(
+                parent: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
+                val quantityMargherita = parent?.getItemAtPosition(position)
+                Toast.makeText(context, "$quantityMargherita", Toast.LENGTH_SHORT).show()
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+            }
+        }
 
 
         return layout
