@@ -5,10 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
-import android.widget.Spinner
-import android.widget.Toast
+import android.widget.*
 import android.widget.Toast.*
 
 
@@ -25,6 +22,8 @@ class OrdiniFragment : Fragment()  {
     ): View? {
         // Inflate the layout for this fragment
         val layout = inflater.inflate(R.layout.fragment_ordini, container, false)
+        var prezzo= 0.0
+
 
         //adattamento dello spinner MARINARA
 
@@ -49,6 +48,7 @@ class OrdiniFragment : Fragment()  {
 
         spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             //variabili da inizializzare per poi essere utilizzate in modo globale nel codice
+            var acconto = 0.0
 
             override fun onItemSelected(
                 parent: AdapterView<*>?,
@@ -58,6 +58,11 @@ class OrdiniFragment : Fragment()  {
             ) {
                 val quantityMarinara = parent?.getItemAtPosition(position)
                 Toast.makeText(context, "$quantityMarinara", Toast.LENGTH_SHORT).show()
+                prezzo -=acconto
+                acconto = position * 4.5
+                prezzo += acconto
+                val conto = layout.findViewById<TextView>(R.id.conto)
+                conto.text = "$prezzo"
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -86,6 +91,7 @@ class OrdiniFragment : Fragment()  {
 
         spinnerMargherita.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             //variabili da inizializzare per poi essere utilizzate in modo globale nel codice
+            var acconto = 0
 
             override fun onItemSelected(
                 parent: AdapterView<*>?,
@@ -95,11 +101,17 @@ class OrdiniFragment : Fragment()  {
             ) {
                 val quantityMargherita = parent?.getItemAtPosition(position)
                 Toast.makeText(context, "$quantityMargherita", Toast.LENGTH_SHORT).show()
+                prezzo -=acconto
+                acconto = position * 5
+                prezzo += acconto
+                val conto = layout.findViewById<TextView>(R.id.conto)
+                conto.text = "$prezzo"
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
             }
         }
+
 
 
         return layout
