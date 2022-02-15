@@ -20,4 +20,9 @@
             android:name="it.itispininfarina.pctorist.InforistFragment"
             android:label="Info ristorante"
             tools:layout="@layout/fragment_inforist" />
+    <fragment
+        android:id="@+id/ordinitestFragment"
+        android:name="it.itispininfarina.pctorist.OrdiniFragment"
+        android:label="Info ristorante"
+        tools:layout="@layout/fragment_ordini" />
 </navigation>
