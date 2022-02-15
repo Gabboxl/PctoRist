@@ -44,6 +44,9 @@ class OrdiniFragment : Fragment()  {
         //FINE ADATTAMENTO SPINNER
 
 
+
+        // Creazione funzione di quando si seleziona un item
+
         spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             //variabili da inizializzare per poi essere utilizzate in modo globale nel codice
 
