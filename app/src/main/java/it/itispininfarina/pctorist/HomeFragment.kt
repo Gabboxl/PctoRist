@@ -5,7 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-
+import android.widget.Toast
 
 
 class HomeFragment : Fragment() {
@@ -23,6 +23,8 @@ class HomeFragment : Fragment() {
         // Inflate the layout for this fragment
 
         val layout = inflater.inflate(R.layout.fragment_home, container, false)
+
+        Toast.makeText(requireContext(), "omg sunzia", Toast.LENGTH_SHORT).show()
 
         return layout
     }
