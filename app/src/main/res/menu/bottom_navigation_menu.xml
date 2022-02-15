@@ -13,4 +13,8 @@
             android:id="@+id/inforistFragment"
             android:icon="@drawable/ic_baseline_info_24"
             android:title="Speranza"/>
+    <item
+        android:id="@+id/ordinitestFragment"
+        android:icon="@drawable/ic_baseline_info_24"
+        android:title="Test ordini temp"/>
 </menu>
