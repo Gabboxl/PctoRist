@@ -14,12 +14,42 @@
             android:id="@+id/sessioneFragment"
             android:name="it.itispininfarina.pctorist.SessioneFragment"
             android:label="Ordina"
-            tools:layout="@layout/fragment_sessione" />
+            tools:layout="@layout/fragment_sessione" >
+        <action
+            android:id="@+id/action_sessioneFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_sessioneFragment_to_ordinitestFragment"
+            app:destination="@id/ordinitestFragment" />
+    </fragment>
     <fragment
             android:id="@+id/inforistFragment"
             android:name="it.itispininfarina.pctorist.InforistFragment"
             android:label="Info ristorante"
             tools:layout="@layout/fragment_inforist" />
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="it.itispininfarina.pctorist.LoginFragment"
+        android:label="Login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_ordinitestFragment"
+            app:destination="@id/ordinitestFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_registraFragment"
+            app:destination="@id/registraFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/registraFragment"
+        android:name="it.itispininfarina.pctorist.RegistraFragment"
+        android:label="Info ristorante"
+        tools:layout="@layout/fragment_registra" >
+        <action
+            android:id="@+id/action_registraFragment_to_ordinitestFragment"
+            app:destination="@id/ordinitestFragment" />
+    </fragment>
     <fragment
         android:id="@+id/ordinitestFragment"
         android:name="it.itispininfarina.pctorist.OrdiniFragment"

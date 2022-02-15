@@ -12,7 +12,7 @@
     <item
             android:id="@+id/inforistFragment"
             android:icon="@drawable/ic_baseline_info_24"
-            android:title="Speranza"/>
+            android:title="Info ristorante"/>
     <item
         android:id="@+id/ordinitestFragment"
         android:icon="@drawable/ic_baseline_info_24"
