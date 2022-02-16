@@ -3,7 +3,7 @@
     <item
         android:id="@+id/homeFragment"
         android:icon="@drawable/ic_baseline_restaurant_menu_24"
-        android:title="Menu" />
+        android:title="Menù" />
     <item
         android:id="@+id/sessioneFragment"
         android:icon="@drawable/ic_baseline_receipt_24"

@@ -8,7 +8,7 @@
     <fragment
             android:id="@+id/homeFragment"
             android:name="it.itispininfarina.pctorist.HomeFragment"
-            android:label="Menu"
+            android:label="Menù"
             tools:layout="@layout/fragment_home" />
     <fragment
             android:id="@+id/sessioneFragment"
@@ -52,6 +52,6 @@
     <fragment
         android:id="@+id/ordinitestFragment"
         android:name="it.itispininfarina.pctorist.OrdiniFragment"
-        android:label="Info ristorante"
+        android:label="Il tuo ordine"
         tools:layout="@layout/fragment_ordini" />
 </navigation>
