@@ -1,35 +1,50 @@
 package it.itispininfarina.pctorist
 
-import android.content.ContentValues
 import android.os.Bundle
-import android.util.Log
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.ktx.auth
+import androidx.lifecycle.ViewModelProvider
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
 
 class RegistraFragment : Fragment() {
-    private lateinit var auth: FirebaseAuth
+    private lateinit var appViewModel: PctoRistViewModel
+
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.overflow_opzioni_menu, menu)
+        return super.onCreateOptionsMenu(menu, inflater)
+    }
+
+
+    override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
+        R.id.options_logout -> {
+            appViewModel.logout()
+            Toast.makeText(context, "Ok sei stato sloggato", Toast.LENGTH_SHORT).show()
+            true
+        }
+
+        else -> {
+            // If we got here, the user's action was not recognized.
+            // Invoke the superclass to handle it.
+            super.onOptionsItemSelected(item)
+        }
+    }
 
     override fun onStart() {
         super.onStart()
-        val currentUser = auth.currentUser
-        if (currentUser != null) {
-            Toast.makeText(requireContext(), "bella sei già loggato", Toast.LENGTH_LONG).show()
-        }
+setHasOptionsMenu(true)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+
 
     }
 
@@ -41,40 +56,18 @@ class RegistraFragment : Fragment() {
 
         val layout = inflater.inflate(R.layout.fragment_registra, container, false)
 
+        appViewModel = ViewModelProvider(this).get(PctoRistViewModel::class.java)
+
+
 
         val mail = layout.findViewById<EditText>(R.id.editMail)
         val pass = layout.findViewById<EditText>(R.id.editPass)
-        val loginbtn = layout.findViewById<Button>(R.id.loginButton)
+        val resistrabtn = layout.findViewById<Button>(R.id.registraButton)
         val scrivibtn = layout.findViewById<Button>(R.id.buttonScrivi)
         val leggibtn = layout.findViewById<Button>(R.id.buttonLeggi)
 
-
-
-
-        //inizializzo l'autenticazione firebase
-        auth = Firebase.auth
-
-
-        loginbtn.setOnClickListener {
-            auth.createUserWithEmailAndPassword(mail.text.toString(), pass.text.toString())
-                .addOnCompleteListener(requireActivity()) { task ->
-                    if (task.isSuccessful) {
-                        // Sign in success, update UI with the signed-in user's information
-                        Log.d(ContentValues.TAG, "createUserWithEmail:success")
-                        val user = auth.currentUser
-                        Toast.makeText(requireContext(), user.toString(), Toast.LENGTH_LONG)
-                            .show()
-                    } else {
-                        // If sign in fails, display a message to the user.
-                        Log.w(ContentValues.TAG, "createUserWithEmail:failure", task.exception)
-                        Toast.makeText(
-                            requireContext(), "Authentication failed. " + task.result,
-                            Toast.LENGTH_SHORT
-                        ).show()
-
-                        //faccio niente
-                    }
-                }
+        resistrabtn.setOnClickListener {
+            appViewModel.registra(mail.text.toString(), pass.text.toString())
         }
 
 

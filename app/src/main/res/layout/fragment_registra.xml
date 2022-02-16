@@ -7,14 +7,14 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/loginButton"
+        android:id="@+id/registraButton"
         android:layout_width="131dp"
         android:layout_height="61dp"
-        android:layout_marginEnd="128dp"
-        android:layout_marginBottom="404dp"
+        android:layout_marginTop="8dp"
         android:text="Registrati"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editPass" />
 
     <EditText
         android:id="@+id/editMail"
@@ -24,7 +24,7 @@
         android:layout_marginTop="100dp"
         android:layout_marginEnd="16dp"
         android:ems="10"
-        android:hint="mailll"
+        android:hint="E-mail"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -38,7 +38,7 @@
         android:layout_marginTop="32dp"
         android:layout_marginEnd="16dp"
         android:ems="10"
-        android:hint="sta password"
+        android:hint="Password"
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -51,7 +51,7 @@
         android:layout_marginTop="36dp"
         android:text="scrivi in database"
         app:layout_constraintEnd_toStartOf="@+id/buttonLeggi"
-        app:layout_constraintHorizontal_bias="0.71"
+        app:layout_constraintHorizontal_bias="0.741"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -59,9 +59,10 @@
         android:id="@+id/buttonLeggi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="72dp"
-        android:text="leggi in db"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="52dp"
+        android:text="leggi da db"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:layout_editor_absoluteY="36dp" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

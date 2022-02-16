@@ -4,5 +4,5 @@
     <item
         android:id="@+id/options_logout"
         android:title="Sloggati"
-        app:showAsAction="never" />
+        app:showAsAction="ifRoom" />
 </menu>
