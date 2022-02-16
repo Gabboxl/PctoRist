@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
 
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.homeFragment, R.id.sessioneFragment, R.id.inforistFragment
+                R.id.homeFragment, R.id.sessioneFragment, R.id.inforistFragment, R.id.loginFragment, R.id.registraFragment, R.id.ordinitestFragment //questi sono i fragment top level, non verrà visualizzata la freccia indietro nella toolbar per i fragments specificati qua
             )
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
