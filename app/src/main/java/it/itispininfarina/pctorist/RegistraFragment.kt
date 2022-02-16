@@ -6,7 +6,10 @@ import androidx.fragment.app.Fragment
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
+import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -38,14 +41,12 @@ class RegistraFragment : Fragment() {
 
     override fun onStart() {
         super.onStart()
-setHasOptionsMenu(true)
+
+        setHasOptionsMenu(true)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-
-
     }
 
     override fun onCreateView(
@@ -58,6 +59,17 @@ setHasOptionsMenu(true)
 
         appViewModel = ViewModelProvider(this).get(PctoRistViewModel::class.java)
 
+
+
+        appViewModel.getUserMutableLiveData().observe(viewLifecycleOwner, object : Observer<FirebaseUser?> {
+            override fun onChanged(firebaseUser: FirebaseUser?) {
+                if(firebaseUser != null){
+                    Toast.makeText(context, "Login effettuato omgggg", Toast.LENGTH_SHORT).show()
+                    findNavController().navigate(R.id.ordinitestFragment)
+                }
+            }
+
+        })
 
 
         val mail = layout.findViewById<EditText>(R.id.editMail)

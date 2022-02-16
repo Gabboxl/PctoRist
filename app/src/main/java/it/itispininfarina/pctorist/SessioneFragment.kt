@@ -23,25 +23,24 @@ class SessioneFragment : Fragment() {
         super.onCreate(savedInstanceState)
 
         appViewModel = ViewModelProvider(this).get(PctoRistViewModel::class.java)
-        appViewModel.getUserMutableLiveData().observe(this, object : Observer<FirebaseUser>{
-            override fun onChanged(firebaseUser: FirebaseUser?) {
-                if(firebaseUser != null){
-                    Toast.makeText(context, "Login effettuato", Toast.LENGTH_SHORT).show()
-                }
-            }
 
-        })
 
+        //qua NON si mette l'osservatore per i cambiamenti dello stato dell'utente firebase perchè questo fragment viene ammazzato quando viene avviato subito il fragment di registrazione alla fine di questo OnCreate().
+
+
+   //     Thread.sleep(2000)
 
 
         if (appViewModel.getUserMutableLiveData().value != null) {
             findNavController().navigate(R.id.ordinitestFragment)
+            Toast.makeText(context, "heu so loggato", Toast.LENGTH_SHORT).show()
         } else {
             val startDestination = findNavController().graph.startDestinationId
             val navOptions = NavOptions.Builder()
                 .setPopUpTo(startDestination, false)
                 .build()
             findNavController().navigate(R.id.registraFragment, null, navOptions)
+            Toast.makeText(context, "heu non sei loggcatowttff", Toast.LENGTH_SHORT).show()
         }
     }
 
