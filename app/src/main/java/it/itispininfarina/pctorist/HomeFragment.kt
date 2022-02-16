@@ -24,7 +24,7 @@ class HomeFragment : Fragment() {
 
         val layout = inflater.inflate(R.layout.fragment_home, container, false)
 
-        Toast.makeText(requireContext(), "omg sunzia", Toast.LENGTH_SHORT).show()
+
 
         return layout
     }

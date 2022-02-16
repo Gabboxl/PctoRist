@@ -13,8 +13,7 @@
     <fragment
             android:id="@+id/sessioneFragment"
             android:name="it.itispininfarina.pctorist.SessioneFragment"
-            android:label="Ordina"
-            tools:layout="@layout/fragment_sessione" >
+            android:label="Ordina">
         <action
             android:id="@+id/action_sessioneFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
