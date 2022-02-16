@@ -5,14 +5,18 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
-import android.widget.Spinner
-import android.widget.Toast
+import android.widget.*
 import android.widget.Toast.*
+import androidx.core.view.get
 
 
-class OrdiniFragment : Fragment()  {
+class OrdiniFragment : Fragment(), AdapterView.OnItemSelectedListener  {
+
+    lateinit var conto : TextView
+    var prezzo = 0.0
+    var prezzoUnitario = arrayOf(5.0, 4.5)
+    var acconto = arrayOf(0.0, 0.0)
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,46 +30,39 @@ class OrdiniFragment : Fragment()  {
         // Inflate the layout for this fragment
         val layout = inflater.inflate(R.layout.fragment_ordini, container, false)
 
-        //adattamento dello spinner MARINARA
+        conto = layout.findViewById(R.id.conto)
 
-        val spinner: Spinner = layout.findViewById(R.id.spinnerMarinara)
+        //adattamento dello spinner UNIVERSALE
 
-        ArrayAdapter.createFromResource(
+        var adapter = ArrayAdapter.createFromResource(
             requireContext(),
             R.array.quantità,
             android.R.layout.simple_spinner_item
-        ).also { adapter ->
-
-            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-
-            spinner.adapter = adapter
-
-        }
-        //FINE ADATTAMENTO SPINNER
+        )
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
 
 
+        //adattamento dello spinner MARINARA
 
-        // Creazione funzione di quando si seleziona un item
+        val spinnerMarinara: Spinner = layout.findViewById(R.id.spinnerMarinara)
+        spinnerMarinara.adapter = adapter
 
-        spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            //variabili da inizializzare per poi essere utilizzate in modo globale nel codice
+        //click sullo spinner Marinara
 
-            override fun onItemSelected(
-                parent: AdapterView<*>?,
-                view: View?,
-                position: Int,
-                id: Long
-            ) {
-                val quantity = parent?.getItemAtPosition(position)
-                Toast.makeText(context, "$quantity", Toast.LENGTH_SHORT).show()
-            }
-
-            override fun onNothingSelected(parent: AdapterView<*>?) {
-            }
-        }
+        spinnerMarinara.onItemSelectedListener = this
 
         //FINE SPINNER MARINARA
 
+
+        //INIZIO SPINNER MARGHERITA
+        val spinnerMargherita: Spinner = layout.findViewById(R.id.spinnerMargherita)
+        spinnerMargherita.adapter = adapter
+
+        //FINE ADATTAMENTO SPINNER
+
+        spinnerMargherita.onItemSelectedListener = this
+
+        //FINE SPINNER MARGHERITA
 
 
 
@@ -74,6 +71,28 @@ class OrdiniFragment : Fragment()  {
     }
 
 
+override fun onItemSelected(parent: AdapterView<*>, view: View?, pos: Int, id: Long) {
 
+    when (parent.id) {
+        R.id.spinnerMargherita -> {
+            prezzo -= acconto[0]
+            acconto[0] = (pos * prezzoUnitario[0])
+            prezzo += acconto[0]
+            conto.text = "$prezzo"
+        }
+        R.id.spinnerMarinara -> {
+            prezzo -= acconto[1]
+            acconto[1] = (pos * prezzoUnitario[1])
+            prezzo += acconto[1]
+            conto.text = "$prezzo"
+        }
+
+
+    }
+}
+
+    override fun onNothingSelected(parent: AdapterView<*>) {
+        // Another interface callback
+    }
 
 }
