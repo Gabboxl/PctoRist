@@ -7,9 +7,16 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import android.widget.Toast.*
+import androidx.core.view.get
 
 
-class OrdiniFragment : Fragment()  {
+class OrdiniFragment : Fragment(), AdapterView.OnItemSelectedListener  {
+
+    lateinit var conto : TextView
+    var prezzo = 0.0
+    var prezzoUnitario = arrayOf(5.0, 4.5)
+    var acconto = arrayOf(0.0, 0.0)
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,12 +29,12 @@ class OrdiniFragment : Fragment()  {
     ): View? {
         // Inflate the layout for this fragment
         val layout = inflater.inflate(R.layout.fragment_ordini, container, false)
-        var prezzo= 0.0
 
+        conto = layout.findViewById(R.id.conto)
 
         //adattamento dello spinner MARINARA
 
-        val spinner: Spinner = layout.findViewById(R.id.spinnerMarinara)
+        val spinnerMarinara: Spinner = layout.findViewById(R.id.spinnerMarinara)
 
         ArrayAdapter.createFromResource(
             requireContext(),
@@ -37,37 +44,12 @@ class OrdiniFragment : Fragment()  {
 
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
 
-            spinner.adapter = adapter
+            spinnerMarinara.adapter = adapter
 
         }
         //FINE ADATTAMENTO SPINNER
 
-
-
-        // Creazione funzione di quando si seleziona un item
-
-        spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            //variabili da inizializzare per poi essere utilizzate in modo globale nel codice
-            var acconto = 0.0
-
-            override fun onItemSelected(
-                parent: AdapterView<*>?,
-                view: View?,
-                position: Int,
-                id: Long
-            ) {
-                val quantityMarinara = parent?.getItemAtPosition(position)
-                Toast.makeText(context, "$quantityMarinara", Toast.LENGTH_SHORT).show()
-                prezzo -=acconto
-                acconto = position * 4.5
-                prezzo += acconto
-                val conto = layout.findViewById<TextView>(R.id.conto)
-                conto.text = "$prezzo"
-            }
-
-            override fun onNothingSelected(parent: AdapterView<*>?) {
-            }
-        }
+        spinnerMarinara.onItemSelectedListener = this
 
         //FINE SPINNER MARINARA
 
@@ -89,32 +71,12 @@ class OrdiniFragment : Fragment()  {
         }
         //FINE ADATTAMENTO SPINNER
 
-        spinnerMargherita.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            //variabili da inizializzare per poi essere utilizzate in modo globale nel codice
-            var acconto = 0
+        spinnerMargherita.onItemSelectedListener = this
 
-            override fun onItemSelected(
-                parent: AdapterView<*>?,
-                view: View?,
-                position: Int,
-                id: Long
-            ) {
-                val quantityMargherita = parent?.getItemAtPosition(position)
-                Toast.makeText(context, "$quantityMargherita", Toast.LENGTH_SHORT).show()
-                prezzo -=acconto
-                acconto = position * 5
-                prezzo += acconto
-                val conto = layout.findViewById<TextView>(R.id.conto)
-                conto.text = "$prezzo"
-            }
-
-            override fun onNothingSelected(parent: AdapterView<*>?) {
-            }
-            //FINE SPINNER MARGHERITA
+        //FINE SPINNER MARGHERITA
 
             //-------------------------------------------------------------------------------------------------------------------
 
-        }
 
 
 
@@ -122,6 +84,28 @@ class OrdiniFragment : Fragment()  {
     }
 
 
+override fun onItemSelected(parent: AdapterView<*>, view: View?, pos: Int, id: Long) {
 
+    when (parent.id) {
+        R.id.spinnerMargherita -> {
+            prezzo -= acconto[0]
+            acconto[0] = (pos * prezzoUnitario[0])
+            prezzo += acconto[0]
+            conto.text = "$prezzo"
+        }
+        R.id.spinnerMarinara -> {
+            prezzo -= acconto[1]
+            acconto[1] = (pos * prezzoUnitario[1])
+            prezzo += acconto[1]
+            conto.text = "$prezzo"
+        }
+
+
+    }
+}
+
+    override fun onNothingSelected(parent: AdapterView<*>) {
+        // Another interface callback
+    }
 
 }
