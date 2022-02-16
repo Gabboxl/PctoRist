@@ -32,50 +32,37 @@ class OrdiniFragment : Fragment(), AdapterView.OnItemSelectedListener  {
 
         conto = layout.findViewById(R.id.conto)
 
-        //adattamento dello spinner MARINARA
+        //adattamento dello spinner UNIVERSALE
 
-        val spinnerMarinara: Spinner = layout.findViewById(R.id.spinnerMarinara)
-
-        ArrayAdapter.createFromResource(
+        var adapter = ArrayAdapter.createFromResource(
             requireContext(),
             R.array.quantità,
             android.R.layout.simple_spinner_item
-        ).also { adapter ->
+        )
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
 
-            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
 
-            spinnerMarinara.adapter = adapter
+        //adattamento dello spinner MARINARA
 
-        }
-        //FINE ADATTAMENTO SPINNER
+        val spinnerMarinara: Spinner = layout.findViewById(R.id.spinnerMarinara)
+        spinnerMarinara.adapter = adapter
+
+        //click sullo spinner Marinara
 
         spinnerMarinara.onItemSelectedListener = this
 
         //FINE SPINNER MARINARA
 
-        //-------------------------------------------------------------------------------------------------------------------
 
         //INIZIO SPINNER MARGHERITA
         val spinnerMargherita: Spinner = layout.findViewById(R.id.spinnerMargherita)
+        spinnerMargherita.adapter = adapter
 
-        ArrayAdapter.createFromResource(
-            requireContext(),
-            R.array.quantità,
-            android.R.layout.simple_spinner_item
-        ).also { adapter ->
-
-            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-
-            spinnerMargherita.adapter = adapter
-
-        }
         //FINE ADATTAMENTO SPINNER
 
         spinnerMargherita.onItemSelectedListener = this
 
         //FINE SPINNER MARGHERITA
-
-            //-------------------------------------------------------------------------------------------------------------------
 
 
 
