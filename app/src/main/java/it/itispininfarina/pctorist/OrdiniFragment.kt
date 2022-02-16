@@ -110,6 +110,10 @@ class OrdiniFragment : Fragment()  {
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
             }
+            //FINE SPINNER MARGHERITA
+
+            //-------------------------------------------------------------------------------------------------------------------
+
         }
 
 
