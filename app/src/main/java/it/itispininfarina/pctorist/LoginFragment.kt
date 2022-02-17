@@ -39,6 +39,8 @@ class LoginFragment : Fragment() {
         val passLog = layout.findViewById<TextView>(R.id.editPassLogin)
         val logBtn = layout.findViewById<Button>(R.id.loginButton)
         val progressLog = layout.findViewById<ProgressBar>(R.id.progressBarLogin)
+        val creaAccountBtn = layout.findViewById<Button>(R.id.buttonCreaAccount)
+        val passDimenticataBtn = layout.findViewById<Button>(R.id.buttonResetPassword)
 
         appViewModel.getUserMutableLiveData().observe(viewLifecycleOwner, object : Observer<FirebaseUser?> {
             override fun onChanged(firebaseUser: FirebaseUser?) {
@@ -55,6 +57,11 @@ class LoginFragment : Fragment() {
             }
 
         })
+
+
+        creaAccountBtn.setOnClickListener {
+            findNavController().navigate(R.id.registraFragment)
+        }
 
 
 
