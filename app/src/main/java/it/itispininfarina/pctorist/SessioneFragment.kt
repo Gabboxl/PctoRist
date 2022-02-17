@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.*
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavOptions
@@ -15,14 +16,12 @@ import com.google.firebase.ktx.Firebase
 
 
 class SessioneFragment : Fragment() {
-    private lateinit var appViewModel: PctoRistViewModel
-
-
+    private val appViewModel: PctoRistViewModel by activityViewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        appViewModel = ViewModelProvider(this).get(PctoRistViewModel::class.java)
+
 
 
         //qua NON si mette l'osservatore per i cambiamenti dello stato dell'utente firebase perchè questo fragment viene ammazzato quando viene avviato subito il fragment di registrazione alla fine di questo OnCreate().
@@ -33,14 +32,14 @@ class SessioneFragment : Fragment() {
 
         if (appViewModel.getUserMutableLiveData().value != null) {
             findNavController().navigate(R.id.ordinitestFragment)
-            Toast.makeText(context, "heu so loggato", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, "heu so loggato + " + appViewModel.getUserMutableLiveData().value, Toast.LENGTH_SHORT).show()
         } else {
             val startDestination = findNavController().graph.startDestinationId
             val navOptions = NavOptions.Builder()
                 .setPopUpTo(startDestination, false)
                 .build()
             findNavController().navigate(R.id.registraFragment, null, navOptions)
-            Toast.makeText(context, "heu non sei loggcatowttff", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, "heu non sei loggcatowttff + " + appViewModel.getUserMutableLiveData().value, Toast.LENGTH_SHORT).show()
         }
     }
 

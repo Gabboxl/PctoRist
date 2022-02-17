@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -16,7 +17,7 @@ import com.google.firebase.ktx.Firebase
 
 
 class RegistraFragment : Fragment() {
-    private lateinit var appViewModel: PctoRistViewModel
+    private val appViewModel: PctoRistViewModel by activityViewModels()
 
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -57,7 +58,6 @@ class RegistraFragment : Fragment() {
 
         val layout = inflater.inflate(R.layout.fragment_registra, container, false)
 
-        appViewModel = ViewModelProvider(this).get(PctoRistViewModel::class.java)
 
 
 
