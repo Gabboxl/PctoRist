@@ -10,6 +10,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.ktx.firestore
@@ -59,7 +60,16 @@ class RegistraFragment : Fragment() {
         val leggibtn = layout.findViewById<Button>(R.id.buttonLeggi)
 
         resistrabtn.setOnClickListener {
-            appViewModel.registra(mail.text.toString(), pass.text.toString())
+            if(mail.text.toString().isNotEmpty() || pass.text.toString().isNotEmpty()) {
+                appViewModel.registra(mail.text.toString(), pass.text.toString())
+            }else {
+                val dialogerror = MaterialAlertDialogBuilder(requireContext())
+                    .setTitle("Errore")
+                    .setMessage("Non puoi lasciare i campi email o password vuoti.")
+                    .setPositiveButton("Ok") { dialog, which ->
+                    }
+                    .show()
+            }
         }
 
 

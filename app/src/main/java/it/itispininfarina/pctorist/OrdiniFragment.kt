@@ -34,7 +34,7 @@ class OrdiniFragment : Fragment(), AdapterView.OnItemSelectedListener  {
     override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
         R.id.options_logout -> {
 
-                val builder = MaterialAlertDialogBuilder(requireContext())
+                val dialog = MaterialAlertDialogBuilder(requireContext())
                     .setTitle("Sei sicuro?")
                     .setMessage("Vuoi davvero sloggarti?")
                  /*   .setNeutralButton("aspe") { dialog, which ->
