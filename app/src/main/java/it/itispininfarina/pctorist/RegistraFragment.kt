@@ -20,26 +20,6 @@ class RegistraFragment : Fragment() {
     private val appViewModel: PctoRistViewModel by activityViewModels()
 
 
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(R.menu.overflow_opzioni_menu, menu)
-        return super.onCreateOptionsMenu(menu, inflater)
-    }
-
-
-    override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
-        R.id.options_logout -> {
-            appViewModel.logout()
-            Toast.makeText(context, "Ok sei stato sloggato", Toast.LENGTH_SHORT).show()
-            true
-        }
-
-        else -> {
-            // If we got here, the user's action was not recognized.
-            // Invoke the superclass to handle it.
-            super.onOptionsItemSelected(item)
-        }
-    }
-
     override fun onStart() {
         super.onStart()
 
