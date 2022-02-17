@@ -13,7 +13,7 @@
     <fragment
             android:id="@+id/sessioneFragment"
             android:name="it.itispininfarina.pctorist.SessioneFragment"
-            android:label="Ordina">
+            android:label="Caricamento...">
         <action
             android:id="@+id/action_sessioneFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
@@ -30,7 +30,7 @@
     <fragment
         android:id="@+id/loginFragment"
         android:name="it.itispininfarina.pctorist.LoginFragment"
-        android:label="Login"
+        android:label="Accedi"
         tools:layout="@layout/fragment_login" >
         <action
             android:id="@+id/action_loginFragment_to_ordinitestFragment"
@@ -43,7 +43,7 @@
     <fragment
         android:id="@+id/registraFragment"
         android:name="it.itispininfarina.pctorist.RegistraFragment"
-        android:label="Info ristorante"
+        android:label="Registrati"
         tools:layout="@layout/fragment_registra" >
         <action
             android:id="@+id/action_registraFragment_to_ordinitestFragment"
