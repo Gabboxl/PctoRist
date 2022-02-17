@@ -30,7 +30,6 @@
         android:layout_marginTop="52dp"
         android:gravity="center_horizontal|center_vertical"
         android:text="Nel nostro ristorante &quot;Duchi di Nardò&quot; avete la possibilità di degustare creazioni culinarie indimenticabili, realizzate con assoluta cura e dedizione. \n Il nostro chef  propone nel menù 3 tipologie di antipasti, 4 di primi piatti, 4 riguardanti le seconde portate e infine 5 tipologie differenti di dessert. \n Speriamo che possiate trascorrere una bellissima esperienza e saremo lieti di ospitarvi in un' altra occasione!"
-        android:textColor="#000000"
         android:textSize="28sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
