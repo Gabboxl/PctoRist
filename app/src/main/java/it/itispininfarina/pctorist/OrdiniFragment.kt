@@ -13,16 +13,17 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.coroutines.NonCancellable.cancel
 
 
-class OrdiniFragment : Fragment(), AdapterView.OnItemSelectedListener  {
+class OrdiniFragment : Fragment(), View.OnClickListener  {
     private val appViewModel: PctoRistViewModel by activityViewModels()
 
-
-
     lateinit var conto : TextView
+    lateinit var quanPB : TextView
+    lateinit var quanLas : TextView
+    lateinit var quanPP : TextView
+    lateinit var quanCot : TextView
     var prezzo = 0.0
     var prezzoUnitario = arrayOf(6.0, 10.0, 8.0, 12.0)
-    var acconto = arrayOf(0.0, 0.0, 0.0, 0.0)
-
+    var quantity = arrayOf (0, 0, 0, 0)
 
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -64,6 +65,7 @@ class OrdiniFragment : Fragment(), AdapterView.OnItemSelectedListener  {
     }
 
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setHasOptionsMenu(true)
@@ -77,103 +79,118 @@ class OrdiniFragment : Fragment(), AdapterView.OnItemSelectedListener  {
         // Inflate the layout for this fragment
         val layout = inflater.inflate(R.layout.fragment_ordini, container, false)
 
+        //trovo i testi dentro il layout
         conto = layout.findViewById(R.id.conto)
+        quanPB = layout.findViewById<TextView>(R.id.quanPastaBianco)
+        quanLas = layout.findViewById<TextView>(R.id.quanLasagna)
+        quanPP = layout.findViewById<TextView>(R.id.quanPastaPesto)
+        quanCot = layout.findViewById<TextView>(R.id.quanCotoletta)
 
-        //adattamento dello spinner UNIVERSALE
+        //trovo i pulsanti dentro il layout
+        val addB1 = layout.findViewById<ImageButton>(R.id.addB1)
+        val addB2 = layout.findViewById<ImageButton>(R.id.addB2)
+        val addB3 = layout.findViewById<ImageButton>(R.id.addB3)
+        val addB4 = layout.findViewById<ImageButton>(R.id.addB4)
+        val removeB1 = layout.findViewById<ImageButton>(R.id.removeB1)
+        val removeB2 = layout.findViewById<ImageButton>(R.id.removeB2)
+        val removeB3 = layout.findViewById<ImageButton>(R.id.removeB3)
+        val removeB4 = layout.findViewById<ImageButton>(R.id.removeB4)
 
-        var adapter = ArrayAdapter.createFromResource(
-            requireContext(),
-            R.array.quantità,
-            android.R.layout.simple_spinner_item
-        )
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        //inizializzo i testi a 0
+        conto.text = "$prezzo"
+        quanPB.text = "0"
+        quanLas.text = "0"
+        quanPP.text = "0"
+        quanCot.text = "0"
 
-
-        //adattamento dello spinner Pasta in bianco
-
-        val spinnerPastaBianco: Spinner = layout.findViewById(R.id.spinnerPastaBianco)
-        spinnerPastaBianco.adapter = adapter
-
-        //click sullo spinner Pasta in bianco
-
-        spinnerPastaBianco.onItemSelectedListener = this
-
-        //FINE SPINNER Pasta in bianco
-        //------------------------------------------------------------------------------------
-
-        //INIZIO SPINNER Lasagna
-        val spinnerLasagna: Spinner = layout.findViewById(R.id.spinnerLasagna)
-        spinnerLasagna.adapter = adapter
-
-        //FINE ADATTAMENTO SPINNER
-
-        spinnerLasagna.onItemSelectedListener = this
-
-        //FINE SPINNER Lasagna
-        //------------------------------------------------------------------------------------
-
-        //INIZIO SPINNER Pasta al pesto
-        val spinnerPastaPesto: Spinner = layout.findViewById(R.id.spinnerPastaPesto)
-        spinnerPastaPesto.adapter = adapter
-
-        //FINE ADATTAMENTO SPINNER
-
-        spinnerPastaPesto.onItemSelectedListener = this
-
-        //FINE SPINNER Pasta al pesto
-        //------------------------------------------------------------------------------------
-
-        //INIZIO SPINNER Cotoletta
-        val spinnerCotoletta: Spinner = layout.findViewById(R.id.spinnerCotoletta)
-        spinnerCotoletta.adapter = adapter
-
-        //FINE ADATTAMENTO Cotoletta
-
-        spinnerCotoletta.onItemSelectedListener = this
-
-        //FINE SPINNER Cotoletta
-        //------------------------------------------------------------------------------------
+        //metodo che poi andrà a cambiare il conto e la quantità
+        addB1.setOnClickListener(this)
+        addB2.setOnClickListener(this)
+        addB3.setOnClickListener(this)
+        addB4.setOnClickListener(this)
+        removeB1.setOnClickListener(this)
+        removeB2.setOnClickListener(this)
+        removeB3.setOnClickListener(this)
+        removeB4.setOnClickListener(this)
 
 
 
         return layout
     }
 
+    override fun onClick(parent: View) {
+        when(parent.id){
+            R.id.addB1 -> {
+                quantity[0]++
+                quanPB.text = ""+quantity[0]
+                prezzo += prezzoUnitario[0]
+                conto.text = "$prezzo"
+            }
+            R.id.addB2 -> {
+                quantity[1]++
+                quanLas.text = ""+quantity[1]
+                prezzo += prezzoUnitario[1]
+                conto.text = "$prezzo"
+            }
+            R.id.addB3 -> {
+                quantity[2]++
+                quanPP.text = ""+quantity[2]
+                prezzo += prezzoUnitario[2]
+                conto.text = "$prezzo"
+            }
+            R.id.addB4 -> {
+                quantity[3]++
+                quanCot.text = ""+quantity[3]
+                prezzo += prezzoUnitario[3]
+                conto.text = "$prezzo"
+            }
+            R.id.removeB1 -> {
+                if(quantity[0]>0) {
+                    quantity[0]--
+                    prezzo -= prezzoUnitario[0]
+                    conto.text = "$prezzo"
+                }
+                else{
+                    quantity[0]=0
+                }
+                quanPB.text = ""+quantity[0]
+            }
+            R.id.removeB2 -> {
+                if(quantity[1]>0) {
+                    quantity[1]--
+                    prezzo -= prezzoUnitario[1]
+                    conto.text = "$prezzo"
+                }
+                else{
+                    quantity[1]=0
+                }
+                quanLas.text = ""+quantity[1]
+            }
+            R.id.removeB3 -> {
+                if(quantity[2]>0) {
+                    quantity[2]--
+                    prezzo -= prezzoUnitario[2]
+                    conto.text = "$prezzo"
+                }
+                else{
+                    quantity[2]=0
+                }
+                quanPP.text = ""+quantity[2]
+            }
+            R.id.removeB4 -> {
+                if(quantity[3]>0) {
+                    quantity[3]--
+                    prezzo -= prezzoUnitario[3]
+                    conto.text = "$prezzo"
+                }
+                else{
+                    quantity[3]=0
+                }
+                quanCot.text = ""+quantity[3]
+            }
 
-override fun onItemSelected(parent: AdapterView<*>, view: View?, pos: Int, id: Long) {
-
-    when (parent.id) {
-        R.id.spinnerPastaBianco -> {
-            prezzo -= acconto[0]
-            acconto[0] = (pos * prezzoUnitario[0])
-            prezzo += acconto[0]
-            conto.text = "$prezzo"
         }
-        R.id.spinnerLasagna -> {
-            prezzo -= acconto[1]
-            acconto[1] = (pos * prezzoUnitario[1])
-            prezzo += acconto[1]
-            conto.text = "$prezzo"
-        }
-        R.id.spinnerPastaPesto -> {
-            prezzo -= acconto[2]
-            acconto[2] = (pos * prezzoUnitario[2])
-            prezzo += acconto[2]
-            conto.text = "$prezzo"
-        }
-        R.id.spinnerCotoletta -> {
-            prezzo -= acconto[3]
-            acconto[3] = (pos * prezzoUnitario[3])
-            prezzo += acconto[3]
-            conto.text = "$prezzo"
-        }
-
-
     }
-}
 
-    override fun onNothingSelected(parent: AdapterView<*>) {
-        // Another interface callback
-    }
 
 }

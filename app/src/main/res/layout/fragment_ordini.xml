@@ -1,8 +1,15 @@
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <TextView
         android:id="@+id/textView2"
@@ -159,46 +166,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Spinner
-        android:id="@+id/spinnerPastaBianco"
-        android:layout_width="101dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="276dp"
-        android:layout_marginTop="48dp"
-        android:spinnerMode="dropdown"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
-
-    <Spinner
-        android:id="@+id/spinnerLasagna"
-        android:layout_width="101dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="276dp"
-        android:layout_marginTop="84dp"
-        android:spinnerMode="dropdown"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerPastaBianco" />
-
-    <Spinner
-        android:id="@+id/spinnerPastaPesto"
-        android:layout_width="101dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="276dp"
-        android:layout_marginTop="84dp"
-        android:spinnerMode="dropdown"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerLasagna" />
-
-    <Spinner
-        android:id="@+id/spinnerCotoletta"
-        android:layout_width="101dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="276dp"
-        android:layout_marginTop="84dp"
-        android:spinnerMode="dropdown"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerPastaPesto" />
-
     <ImageView
         android:id="@+id/imageView8"
         android:layout_width="100dp"
@@ -209,5 +176,132 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView4"
         app:srcCompat="@drawable/cotoletta_con_patatine" />
 
+    <TextView
+        android:id="@+id/quanPastaBianco"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="276dp"
+        android:layout_marginTop="160dp"
+        android:text="quanPB"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/quanLasagna"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="276dp"
+        android:layout_marginTop="116dp"
+        android:layout_marginEnd="17dp"
+        android:text="quanPB"
+        app:layout_constraintEnd_toStartOf="@+id/addB2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/quanPastaBianco" />
+
+    <TextView
+        android:id="@+id/quanPastaPesto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="276dp"
+        android:layout_marginTop="116dp"
+        android:layout_marginEnd="17dp"
+        android:text="quanPB"
+        app:layout_constraintEnd_toStartOf="@+id/addB3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/quanLasagna" />
+
+    <TextView
+        android:id="@+id/quanCotoletta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="276dp"
+        android:layout_marginTop="116dp"
+        android:layout_marginEnd="17dp"
+        android:text="quanPB"
+        app:layout_constraintEnd_toStartOf="@+id/addB4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/quanPastaPesto" />
+
+    <ImageButton
+        android:id="@+id/addB1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="100dp"
+        app:layout_constraintStart_toEndOf="@+id/quanPastaBianco"
+        app:layout_constraintTop_toBottomOf="@+id/conto"
+        app:srcCompat="@drawable/ic_baseline_add_24" />
+
+    <ImageButton
+        android:id="@+id/addB2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="96dp"
+        app:layout_constraintStart_toEndOf="@+id/quanLasagna"
+        app:layout_constraintTop_toBottomOf="@+id/addB1"
+        app:srcCompat="@drawable/ic_baseline_add_24" />
+
+    <ImageButton
+        android:id="@+id/addB3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="92dp"
+        app:layout_constraintStart_toEndOf="@+id/quanPastaPesto"
+        app:layout_constraintTop_toBottomOf="@+id/addB2"
+        app:srcCompat="@drawable/ic_baseline_add_24" />
+
+    <ImageButton
+        android:id="@+id/addB4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="92dp"
+        app:layout_constraintStart_toEndOf="@+id/quanCotoletta"
+        app:layout_constraintTop_toBottomOf="@+id/addB3"
+        app:srcCompat="@drawable/ic_baseline_add_24" />
+
+    <ImageButton
+        android:id="@+id/removeB1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="144dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toStartOf="@+id/quanPastaBianco"
+        app:layout_constraintTop_toTopOf="@+id/textView2"
+        app:srcCompat="@drawable/ic_baseline_remove_24" />
+
+    <ImageButton
+        android:id="@+id/removeB2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="96dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toStartOf="@+id/quanLasagna"
+        app:layout_constraintTop_toBottomOf="@+id/removeB1"
+        app:srcCompat="@drawable/ic_baseline_remove_24" />
+
+    <ImageButton
+        android:id="@+id/removeB4"
+        android:layout_width="48dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="92dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toStartOf="@+id/quanCotoletta"
+        app:layout_constraintTop_toBottomOf="@+id/removeB3"
+        app:srcCompat="@drawable/ic_baseline_remove_24" />
+
+    <ImageButton
+        android:id="@+id/removeB3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="92dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toStartOf="@+id/quanPastaPesto"
+        app:layout_constraintTop_toBottomOf="@+id/removeB2"
+        app:srcCompat="@drawable/ic_baseline_remove_24" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
