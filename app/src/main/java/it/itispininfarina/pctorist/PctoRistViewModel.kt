@@ -21,6 +21,11 @@ class PctoRistViewModel(@Nonnull application: Application) : AndroidViewModel(ap
         repository.registra(email, password)
     }
 
+    fun login(email: String, password: String){
+        repository.login(email, password)
+    }
+
+
     fun getUserMutableLiveData(): MutableLiveData<FirebaseUser>{
         return userMutableLiveData
     }

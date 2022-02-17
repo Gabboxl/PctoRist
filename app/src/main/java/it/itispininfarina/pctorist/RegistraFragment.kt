@@ -9,7 +9,6 @@ import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
@@ -28,8 +27,6 @@ class RegistraFragment : Fragment() {
 
     override fun onStart() {
         super.onStart()
-
-        setHasOptionsMenu(true)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -46,9 +43,9 @@ class RegistraFragment : Fragment() {
 
 
 
-        val mail = layout.findViewById<EditText>(R.id.editMail)
-        val pass = layout.findViewById<EditText>(R.id.editPass)
-        val resistrabtn = layout.findViewById<Button>(R.id.registraButton)
+        val mailRegistra = layout.findViewById<EditText>(R.id.editMailRegistra)
+        val passRegistra = layout.findViewById<EditText>(R.id.editPassRegistra)
+        val registrabtn = layout.findViewById<Button>(R.id.registraButton)
         val scrivibtn = layout.findViewById<Button>(R.id.buttonScrivi)
         val leggibtn = layout.findViewById<Button>(R.id.buttonLeggi)
         val progressRegistra = layout.findViewById<ProgressBar>(R.id.progressBarRegistra)
@@ -59,13 +56,13 @@ class RegistraFragment : Fragment() {
             override fun onChanged(firebaseUser: FirebaseUser?) {
                 if(firebaseUser != null){
 
-                    Toast.makeText(context, "Registrazione effettuata", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, "Registrazione completata", Toast.LENGTH_SHORT).show()
 
                     findNavController().navigate(R.id.ordinitestFragment)
 
 
                     progressRegistra.visibility = View.INVISIBLE
-                    resistrabtn.visibility = View.VISIBLE
+                    registrabtn.visibility = View.VISIBLE
                 }
             }
 
@@ -73,16 +70,16 @@ class RegistraFragment : Fragment() {
 
 
 
-        resistrabtn.setOnClickListener {
-            if(mail.text.toString().isNotEmpty() || pass.text.toString().isNotEmpty()) {
+        registrabtn.setOnClickListener {
+            if(mailRegistra.text.toString().isNotEmpty() || passRegistra.text.toString().isNotEmpty()) {
                 appViewModel.viewModelScope.launch(Dispatchers.Default) {
                     withContext(Dispatchers.Main)
                     {
                         progressRegistra.visibility = View.VISIBLE
-                        resistrabtn.visibility = View.INVISIBLE
+                        registrabtn.visibility = View.INVISIBLE
                     }
 
-                    appViewModel.registra(mail.text.toString(), pass.text.toString())
+                    appViewModel.registra(mailRegistra.text.toString(), passRegistra.text.toString())
                 }
             }else {
                 val dialogerror = MaterialAlertDialogBuilder(requireContext())
