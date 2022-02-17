@@ -21,9 +21,12 @@ class OrdiniFragment : Fragment(), View.OnClickListener  {
     lateinit var quanLas : TextView
     lateinit var quanPP : TextView
     lateinit var quanCot : TextView
+    lateinit var quanBistec : TextView
+    lateinit var quanTiramisu : TextView
+    lateinit var quanCrostata : TextView
     var prezzo = 0.0
-    var prezzoUnitario = arrayOf(6.0, 10.0, 8.0, 12.0)
-    var quantity = arrayOf (0, 0, 0, 0)
+    var prezzoUnitario = arrayOf(6.0, 10.0, 8.0, 12.0, 20.0, 6.5, 6.0)
+    var quantity = arrayOf (0, 0, 0, 0, 0, 0, 0)
 
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -85,16 +88,25 @@ class OrdiniFragment : Fragment(), View.OnClickListener  {
         quanLas = layout.findViewById<TextView>(R.id.quanLasagna)
         quanPP = layout.findViewById<TextView>(R.id.quanPastaPesto)
         quanCot = layout.findViewById<TextView>(R.id.quanCotoletta)
+        quanBistec = layout.findViewById<TextView>(R.id.quanBistecca)
+        quanTiramisu = layout.findViewById<TextView>(R.id.quanTiramisu)
+        quanCrostata = layout.findViewById<TextView>(R.id.quanCrostata)
 
         //trovo i pulsanti dentro il layout
         val addB1 = layout.findViewById<ImageButton>(R.id.addB1)
         val addB2 = layout.findViewById<ImageButton>(R.id.addB2)
         val addB3 = layout.findViewById<ImageButton>(R.id.addB3)
         val addB4 = layout.findViewById<ImageButton>(R.id.addB4)
+        val addB5 = layout.findViewById<ImageButton>(R.id.addB5)
+        val addB6 = layout.findViewById<ImageButton>(R.id.addB6)
+        val addB7 = layout.findViewById<ImageButton>(R.id.addB7)
         val removeB1 = layout.findViewById<ImageButton>(R.id.removeB1)
         val removeB2 = layout.findViewById<ImageButton>(R.id.removeB2)
         val removeB3 = layout.findViewById<ImageButton>(R.id.removeB3)
         val removeB4 = layout.findViewById<ImageButton>(R.id.removeB4)
+        val removeB5 = layout.findViewById<ImageButton>(R.id.removeB5)
+        val removeB6 = layout.findViewById<ImageButton>(R.id.removeB6)
+        val removeB7 = layout.findViewById<ImageButton>(R.id.removeB7)
 
         //inizializzo i testi a 0
         conto.text = "$prezzo"
@@ -102,16 +114,25 @@ class OrdiniFragment : Fragment(), View.OnClickListener  {
         quanLas.text = "0"
         quanPP.text = "0"
         quanCot.text = "0"
+        quanBistec.text = "0"
+        quanTiramisu.text = "0"
+        quanCrostata.text = "0"
 
         //metodo che poi andrà a cambiare il conto e la quantità
         addB1.setOnClickListener(this)
         addB2.setOnClickListener(this)
         addB3.setOnClickListener(this)
         addB4.setOnClickListener(this)
+        addB5.setOnClickListener(this)
+        addB6.setOnClickListener(this)
+        addB7.setOnClickListener(this)
         removeB1.setOnClickListener(this)
         removeB2.setOnClickListener(this)
         removeB3.setOnClickListener(this)
         removeB4.setOnClickListener(this)
+        removeB5.setOnClickListener(this)
+        removeB6.setOnClickListener(this)
+        removeB7.setOnClickListener(this)
 
 
 
@@ -142,6 +163,24 @@ class OrdiniFragment : Fragment(), View.OnClickListener  {
                 quantity[3]++
                 quanCot.text = ""+quantity[3]
                 prezzo += prezzoUnitario[3]
+                conto.text = "$prezzo"
+            }
+            R.id.addB5 -> {
+                quantity[4]++
+                quanBistec.text = ""+quantity[4]
+                prezzo += prezzoUnitario[4]
+                conto.text = "$prezzo"
+            }
+            R.id.addB6 -> {
+                quantity[5]++
+                quanTiramisu.text = ""+quantity[5]
+                prezzo += prezzoUnitario[5]
+                conto.text = "$prezzo"
+            }
+            R.id.addB7 -> {
+                quantity[6]++
+                quanCrostata.text = ""+quantity[6]
+                prezzo += prezzoUnitario[6]
                 conto.text = "$prezzo"
             }
             R.id.removeB1 -> {
@@ -187,6 +226,39 @@ class OrdiniFragment : Fragment(), View.OnClickListener  {
                     quantity[3]=0
                 }
                 quanCot.text = ""+quantity[3]
+            }
+            R.id.removeB5 -> {
+                if(quantity[4]>0) {
+                    quantity[4]--
+                    prezzo -= prezzoUnitario[4]
+                    conto.text = "$prezzo"
+                }
+                else{
+                    quantity[3]=0
+                }
+                quanBistec.text = ""+quantity[4]
+            }
+            R.id.removeB6 -> {
+                if(quantity[5]>0) {
+                    quantity[5]--
+                    prezzo -= prezzoUnitario[5]
+                    conto.text = "$prezzo"
+                }
+                else{
+                    quantity[5]=0
+                }
+                quanTiramisu.text = ""+quantity[5]
+            }
+            R.id.removeB7 -> {
+                if(quantity[6]>0) {
+                    quantity[6]--
+                    prezzo -= prezzoUnitario[6]
+                    conto.text = "$prezzo"
+                }
+                else{
+                    quantity[6]=0
+                }
+                quanCrostata.text = ""+quantity[6]
             }
 
         }
