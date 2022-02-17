@@ -20,8 +20,8 @@ class OrdiniFragment : Fragment(), AdapterView.OnItemSelectedListener  {
 
     lateinit var conto : TextView
     var prezzo = 0.0
-    var prezzoUnitario = arrayOf(5.0, 4.5)
-    var acconto = arrayOf(0.0, 0.0)
+    var prezzoUnitario = arrayOf(6.0, 10.0, 8.0, 12.0)
+    var acconto = arrayOf(0.0, 0.0, 0.0, 0.0)
 
 
 
@@ -89,28 +89,50 @@ class OrdiniFragment : Fragment(), AdapterView.OnItemSelectedListener  {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
 
 
-        //adattamento dello spinner MARINARA
+        //adattamento dello spinner Pasta in bianco
 
-        val spinnerMarinara: Spinner = layout.findViewById(R.id.spinnerMarinara)
-        spinnerMarinara.adapter = adapter
+        val spinnerPastaBianco: Spinner = layout.findViewById(R.id.spinnerPastaBianco)
+        spinnerPastaBianco.adapter = adapter
 
-        //click sullo spinner Marinara
+        //click sullo spinner Pasta in bianco
 
-        spinnerMarinara.onItemSelectedListener = this
+        spinnerPastaBianco.onItemSelectedListener = this
 
-        //FINE SPINNER MARINARA
+        //FINE SPINNER Pasta in bianco
+        //------------------------------------------------------------------------------------
 
-
-        //INIZIO SPINNER MARGHERITA
-        val spinnerMargherita: Spinner = layout.findViewById(R.id.spinnerMargherita)
-        spinnerMargherita.adapter = adapter
+        //INIZIO SPINNER Lasagna
+        val spinnerLasagna: Spinner = layout.findViewById(R.id.spinnerLasagna)
+        spinnerLasagna.adapter = adapter
 
         //FINE ADATTAMENTO SPINNER
 
-        spinnerMargherita.onItemSelectedListener = this
+        spinnerLasagna.onItemSelectedListener = this
 
-        //FINE SPINNER MARGHERITA
+        //FINE SPINNER Lasagna
+        //------------------------------------------------------------------------------------
 
+        //INIZIO SPINNER Pasta al pesto
+        val spinnerPastaPesto: Spinner = layout.findViewById(R.id.spinnerPastaPesto)
+        spinnerPastaPesto.adapter = adapter
+
+        //FINE ADATTAMENTO SPINNER
+
+        spinnerPastaPesto.onItemSelectedListener = this
+
+        //FINE SPINNER Pasta al pesto
+        //------------------------------------------------------------------------------------
+
+        //INIZIO SPINNER Cotoletta
+        val spinnerCotoletta: Spinner = layout.findViewById(R.id.spinnerCotoletta)
+        spinnerCotoletta.adapter = adapter
+
+        //FINE ADATTAMENTO Cotoletta
+
+        spinnerCotoletta.onItemSelectedListener = this
+
+        //FINE SPINNER Cotoletta
+        //------------------------------------------------------------------------------------
 
 
 
@@ -121,16 +143,28 @@ class OrdiniFragment : Fragment(), AdapterView.OnItemSelectedListener  {
 override fun onItemSelected(parent: AdapterView<*>, view: View?, pos: Int, id: Long) {
 
     when (parent.id) {
-        R.id.spinnerMargherita -> {
+        R.id.spinnerPastaBianco -> {
             prezzo -= acconto[0]
             acconto[0] = (pos * prezzoUnitario[0])
             prezzo += acconto[0]
             conto.text = "$prezzo"
         }
-        R.id.spinnerMarinara -> {
+        R.id.spinnerLasagna -> {
             prezzo -= acconto[1]
             acconto[1] = (pos * prezzoUnitario[1])
             prezzo += acconto[1]
+            conto.text = "$prezzo"
+        }
+        R.id.spinnerPastaPesto -> {
+            prezzo -= acconto[2]
+            acconto[2] = (pos * prezzoUnitario[2])
+            prezzo += acconto[2]
+            conto.text = "$prezzo"
+        }
+        R.id.spinnerCotoletta -> {
+            prezzo -= acconto[3]
+            acconto[3] = (pos * prezzoUnitario[3])
+            prezzo += acconto[3]
             conto.text = "$prezzo"
         }
 
