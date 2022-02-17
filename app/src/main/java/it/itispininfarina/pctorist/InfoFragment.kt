@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 
 
-class InforistFragment : Fragment() {
+class InfoFragment : Fragment() {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {

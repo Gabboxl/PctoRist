@@ -23,7 +23,7 @@
     </fragment>
     <fragment
             android:id="@+id/inforistFragment"
-            android:name="it.itispininfarina.pctorist.InforistFragment"
+            android:name="it.itispininfarina.pctorist.InfoFragment"
             android:label="Info ristorante"
             tools:layout="@layout/fragment_info" />
 
