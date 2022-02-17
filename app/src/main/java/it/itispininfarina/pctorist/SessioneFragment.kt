@@ -32,13 +32,13 @@ class SessioneFragment : Fragment() {
 
         if (appViewModel.getUserMutableLiveData().value != null) {
             findNavController().navigate(R.id.ordinitestFragment)
-            Toast.makeText(context, "heu so loggato + " + appViewModel.getUserMutableLiveData().value, Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, "Hey sei già loggato + " + appViewModel.getUserMutableLiveData().value, Toast.LENGTH_SHORT).show()
         } else {
             val startDestination = findNavController().graph.startDestinationId
             val navOptions = NavOptions.Builder()
                 .setPopUpTo(startDestination, false)
                 .build()
-            findNavController().navigate(R.id.registraFragment, null, navOptions)
+            findNavController().navigate(R.id.loginFragment, null, navOptions)
             Toast.makeText(context, "heu non sei loggcatowttff + " + appViewModel.getUserMutableLiveData().value, Toast.LENGTH_SHORT).show()
         }
     }

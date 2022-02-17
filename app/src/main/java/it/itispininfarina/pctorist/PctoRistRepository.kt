@@ -35,7 +35,7 @@ class PctoRistRepository(application: Application) {
                     // Sign in success, update UI with the signed-in user's information
                     Log.d(ContentValues.TAG, "createUserWithEmail:success")
                     val user = auth.currentUser
-                    userMutableLiveData.value = user!!
+                    userMutableLiveData.postValue(user!!)
                 } else {
                     // If sign in fails, display a message to the user.
                     Log.w(ContentValues.TAG, "createUserWithEmail:failure", task.exception)
@@ -51,7 +51,7 @@ class PctoRistRepository(application: Application) {
 
     fun logout(){
         auth.signOut()
-        loggedoutMutableLiveData.value= true
+        loggedoutMutableLiveData.postValue(true)
     }
 
     fun getUserMutableLiveData(): MutableLiveData<FirebaseUser>{
