@@ -5,12 +5,9 @@
     android:layout_height="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="#B1AD88"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    android:layout_height="wrap_content">
 
     <TextView
         android:id="@+id/textView8"
@@ -35,8 +32,9 @@
         android:text="Nel nostro ristorante &quot;Duchi di Nardò&quot; avete la possibilità di degustare creazioni culinarie indimenticabili, realizzate con assoluta cura e dedizione.Il nostro chef  propone nel menù 3 tipologie di antipasti, 4 di primi piatti, 4 riguardanti le seconde portate e infine 5 tipologie differenti di dessert.Speriamo che possiate trascorrere una bellissima esperienza e saremo lieti di ospitarvi in un' altra occasione!"
         android:textColor="#000000"
         android:textSize="28sp"
-        app:layout_constraintTop_toBottomOf="@+id/textView8"
-        tools:layout_editor_absoluteX="23dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView8" />
 </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
 
