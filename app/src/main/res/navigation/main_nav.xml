@@ -8,7 +8,7 @@
     <fragment
             android:id="@+id/homeFragment"
             android:name="it.itispininfarina.pctorist.HomeFragment"
-            android:label="Menù"
+            android:label="Duchi di Nardò"
             tools:layout="@layout/fragment_home" />
     <fragment
             android:id="@+id/sessioneFragment"
