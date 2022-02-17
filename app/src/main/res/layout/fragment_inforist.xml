@@ -1,20 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeFragment">
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <!-- TODO: Update blank fragment layout -->
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#B1AD88"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
     <TextView
+        android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Qui ci sara l'info ristorante"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="24dp"
+        android:fontFamily="cursive"
+        android:text="Il Ristorante"
+        android:textColor="#FF0000"
+        android:textSize="50sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:textStyle="bold"/>
 
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="367dp"
+        android:layout_height="611dp"
+        android:layout_marginTop="52dp"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="Nel nostro ristorante &quot;Duchi di Nardò&quot; avete la possibilità di degustare creazioni culinarie indimenticabili, realizzate con assoluta cura e dedizione.Il nostro chef  propone nel menù 3 tipologie di antipasti, 4 di primi piatti, 4 riguardanti le seconde portate e infine 5 tipologie differenti di dessert.Speriamo che possiate trascorrere una bellissima esperienza e saremo lieti di ospitarvi in un' altra occasione!"
+        android:textColor="#000000"
+        android:textSize="28sp"
+        app:layout_constraintTop_toBottomOf="@+id/textView8"
+        tools:layout_editor_absoluteX="23dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
+
