@@ -5,11 +5,9 @@
     android:layout_height="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="match_parent">
 
     <TextView
         android:id="@+id/textView2"
@@ -112,24 +110,65 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView4" />
 
     <TextView
+        android:id="@+id/textView19"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="136dp"
+        android:layout_marginTop="52dp"
+        android:fontFamily="@font/noto_sans"
+        android:text="Bistecca"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView8" />
+
+    <TextView
+        android:id="@+id/textView23"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="136dp"
+        android:layout_marginTop="52dp"
+        android:fontFamily="@font/noto_sans"
+        android:text="Tiramisù"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView10" />
+
+    <TextView
+        android:id="@+id/textView25"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="136dp"
+        android:layout_marginTop="52dp"
+        android:fontFamily="@font/noto_sans"
+        android:text="Crostata ai frutti di bosco"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView11" />
+
+    <TextView
         android:id="@+id/textView5"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginStart="132dp"
         android:layout_marginTop="24dp"
         android:text="6€"
-        app:autoSizeTextType="uniform"
+        android:textSize="20sp"
+        app:autoSizeTextType="none"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
     <TextView
         android:id="@+id/textView6"
-        android:layout_width="30dp"
+        android:layout_width="35dp"
         android:layout_height="30dp"
         android:layout_marginStart="132dp"
         android:layout_marginTop="24dp"
         android:text="10€"
-        app:autoSizeTextType="uniform"
+        android:textSize="20sp"
+        app:autoSizeTextType="none"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
@@ -140,20 +179,58 @@
         android:layout_marginStart="132dp"
         android:layout_marginTop="24dp"
         android:text="8€"
-        app:autoSizeTextType="uniform"
+        android:textSize="20sp"
+        app:autoSizeTextType="none"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
     <TextView
         android:id="@+id/textView18"
-        android:layout_width="30dp"
+        android:layout_width="38dp"
         android:layout_height="30dp"
         android:layout_marginStart="132dp"
         android:layout_marginTop="24dp"
         android:text="12€"
-        app:autoSizeTextType="uniform"
+        android:textSize="20sp"
+        app:autoSizeTextType="none"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView17" />
+
+    <TextView
+        android:id="@+id/textView22"
+        android:layout_width="41dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="132dp"
+        android:layout_marginTop="24dp"
+        android:text="6.5€"
+        android:textSize="20sp"
+        app:autoSizeTextType="none"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView23" />
+
+    <TextView
+        android:id="@+id/textView26"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="132dp"
+        android:layout_marginTop="24dp"
+        android:text="6€"
+        android:textSize="20sp"
+        app:autoSizeTextType="none"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView25" />
+
+    <TextView
+        android:id="@+id/textView24"
+        android:layout_width="39dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="132dp"
+        android:layout_marginTop="24dp"
+        android:text="20€"
+        android:textSize="20sp"
+        app:autoSizeTextType="none"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView19" />
 
     <TextView
         android:id="@+id/conto"
@@ -222,6 +299,36 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/quanPastaPesto" />
 
+    <TextView
+        android:id="@+id/quanBistecca"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="276dp"
+        android:layout_marginTop="116dp"
+        android:text="quanPB"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/quanCotoletta" />
+
+    <TextView
+        android:id="@+id/quanTiramisu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="276dp"
+        android:layout_marginTop="112dp"
+        android:text="quanPB"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/quanBistecca" />
+
+    <TextView
+        android:id="@+id/quanCrostata"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="276dp"
+        android:layout_marginTop="116dp"
+        android:text="quanPB"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/quanTiramisu" />
+
     <ImageButton
         android:id="@+id/addB1"
         android:layout_width="wrap_content"
@@ -263,6 +370,36 @@
         app:srcCompat="@drawable/ic_baseline_add_24" />
 
     <ImageButton
+        android:id="@+id/addB5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="92dp"
+        app:layout_constraintStart_toEndOf="@+id/quanBistecca"
+        app:layout_constraintTop_toBottomOf="@+id/addB4"
+        app:srcCompat="@drawable/ic_baseline_add_24" />
+
+    <ImageButton
+        android:id="@+id/addB6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="88dp"
+        app:layout_constraintStart_toEndOf="@+id/quanTiramisu"
+        app:layout_constraintTop_toBottomOf="@+id/addB5"
+        app:srcCompat="@drawable/ic_baseline_add_24" />
+
+    <ImageButton
+        android:id="@+id/addB7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="88dp"
+        app:layout_constraintStart_toEndOf="@+id/quanCrostata"
+        app:layout_constraintTop_toBottomOf="@+id/addB6"
+        app:srcCompat="@drawable/ic_baseline_add_24" />
+
+    <ImageButton
         android:id="@+id/removeB1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -293,6 +430,36 @@
         app:srcCompat="@drawable/ic_baseline_remove_24" />
 
     <ImageButton
+        android:id="@+id/removeB5"
+        android:layout_width="48dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="92dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toStartOf="@+id/quanBistecca"
+        app:layout_constraintTop_toBottomOf="@+id/removeB4"
+        app:srcCompat="@drawable/ic_baseline_remove_24" />
+
+    <ImageButton
+        android:id="@+id/removeB6"
+        android:layout_width="48dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="88dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toStartOf="@+id/quanTiramisu"
+        app:layout_constraintTop_toBottomOf="@+id/removeB5"
+        app:srcCompat="@drawable/ic_baseline_remove_24" />
+
+    <ImageButton
+        android:id="@+id/removeB7"
+        android:layout_width="48dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="88dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toStartOf="@+id/quanCrostata"
+        app:layout_constraintTop_toBottomOf="@+id/removeB6"
+        app:srcCompat="@drawable/ic_baseline_remove_24" />
+
+    <ImageButton
         android:id="@+id/removeB3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -301,6 +468,36 @@
         app:layout_constraintEnd_toStartOf="@+id/quanPastaPesto"
         app:layout_constraintTop_toBottomOf="@+id/removeB2"
         app:srcCompat="@drawable/ic_baseline_remove_24" />
+
+    <ImageView
+        android:id="@+id/imageView10"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView8"
+        app:srcCompat="@drawable/bistec" />
+
+    <ImageView
+        android:id="@+id/imageView11"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView10"
+        app:srcCompat="@drawable/tiramisu" />
+
+    <ImageView
+        android:id="@+id/imageView13"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView11"
+        app:srcCompat="@drawable/crostata" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
