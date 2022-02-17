@@ -63,6 +63,10 @@ class LoginFragment : Fragment() {
             findNavController().navigate(R.id.registraFragment)
         }
 
+        passDimenticataBtn.setOnClickListener {
+            findNavController().navigate(R.id.resetPassFragment)
+        }
+
 
 
         logBtn.setOnClickListener {

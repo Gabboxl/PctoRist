@@ -87,6 +87,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
         android:text="Per effettuare l'ordine devi prima accedere!"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"

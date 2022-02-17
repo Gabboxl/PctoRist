@@ -25,8 +25,8 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="-270" />
-                            <option name="y" value="799" />
+                            <option name="x" value="-234" />
+                            <option name="y" value="754" />
                           </Point>
                         </option>
                       </LayoutPositions>
@@ -49,6 +49,11 @@
                               </value>
                             </entry>
                             <entry key="action_loginFragment_to_registraFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                            <entry key="action_loginFragment_to_resetPassFragment">
                               <value>
                                 <LayoutPositions />
                               </value>
@@ -87,6 +92,18 @@
                               </value>
                             </entry>
                           </map>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
+                  <entry key="resetPassFragment">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="184" />
+                            <option name="y" value="-213" />
+                          </Point>
                         </option>
                       </LayoutPositions>
                     </value>

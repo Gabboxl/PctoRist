@@ -21,6 +21,13 @@
             android:id="@+id/action_sessioneFragment_to_ordinitestFragment"
             app:destination="@id/ordinitestFragment" />
     </fragment>
+
+    <fragment
+        android:id="@+id/resetPassFragment"
+        android:name="it.itispininfarina.pctorist.ResetPassFragment"
+        android:label="Reimposta la password"
+        tools:layout="@layout/fragment_reset_pass" />
+
     <fragment
             android:id="@+id/inforistFragment"
             android:name="it.itispininfarina.pctorist.InfoFragment"
@@ -38,6 +45,9 @@
         <action
             android:id="@+id/action_loginFragment_to_registraFragment"
             app:destination="@id/registraFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_resetPassFragment"
+            app:destination="@id/resetPassFragment" />
     </fragment>
 
     <fragment
