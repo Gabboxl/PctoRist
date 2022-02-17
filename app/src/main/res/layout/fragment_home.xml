@@ -9,21 +9,20 @@
     android:layout_height="match_parent"
     android:background="#B1AD88">
 
+
     <TextView
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:fontFamily="cursive"
         android:text="Menù"
         android:textColor="#FF0000"
         android:textSize="50sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.071"
+        app:layout_constraintHorizontal_bias="0.052"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.01" />
-
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView10"
@@ -221,8 +220,8 @@
 
     <TextView
         android:id="@+id/textView21"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="292dp"
+        android:layout_height="24dp"
         android:layout_marginTop="4dp"
         android:gravity="center"
         android:text="CROSTATA AI FRUTTI DI BOSCO € 6"
@@ -230,7 +229,6 @@
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView14" />
 
