@@ -37,15 +37,13 @@ class OrdiniFragment : Fragment(), AdapterView.OnItemSelectedListener  {
                 val builder = MaterialAlertDialogBuilder(requireContext())
                     .setTitle("Sei sicuro?")
                     .setMessage("Vuoi davvero sloggarti?")
-                    .setNeutralButton("aspe") { dialog, which ->
+                 /*   .setNeutralButton("aspe") { dialog, which ->
                         // Respond to neutral button press
-                    }
+                    }*/
                     .setNegativeButton("Annulla") { dialog, which ->
-                        // Respond to negative button press
                         Toast.makeText(context, "ok tranguillo", Toast.LENGTH_SHORT).show()
                     }
                     .setPositiveButton("Si") { dialog, which ->
-                        // Respond to positive button press
                         appViewModel.logout()
 
                         Toast.makeText(context, "Ok sei stato sloggato", Toast.LENGTH_SHORT).show()
