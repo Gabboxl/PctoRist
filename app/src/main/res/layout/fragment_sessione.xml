@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeFragment">
+    tools:context=".MenuFragment">
 
     <!-- TODO: forse questo file di layout potrebbe anche non esserci pro bella perchè il file sessionefragment.kt dovrebbe gestire quale fragment tra login e registrazione dovrebbe visualizzare -->
 

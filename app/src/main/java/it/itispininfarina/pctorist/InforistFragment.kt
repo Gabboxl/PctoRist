@@ -20,7 +20,7 @@ class InforistFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_inforist, container, false)
+        return inflater.inflate(R.layout.fragment_info, container, false)
     }
 
 }

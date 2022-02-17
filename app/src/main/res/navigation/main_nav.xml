@@ -7,9 +7,9 @@
 
     <fragment
             android:id="@+id/homeFragment"
-            android:name="it.itispininfarina.pctorist.HomeFragment"
+            android:name="it.itispininfarina.pctorist.MenuFragment"
             android:label="Duchi di Nardò"
-            tools:layout="@layout/fragment_home" />
+            tools:layout="@layout/fragment_menu" />
     <fragment
             android:id="@+id/sessioneFragment"
             android:name="it.itispininfarina.pctorist.SessioneFragment"
@@ -25,7 +25,7 @@
             android:id="@+id/inforistFragment"
             android:name="it.itispininfarina.pctorist.InforistFragment"
             android:label="Info ristorante"
-            tools:layout="@layout/fragment_inforist" />
+            tools:layout="@layout/fragment_info" />
 
     <fragment
         android:id="@+id/loginFragment"
