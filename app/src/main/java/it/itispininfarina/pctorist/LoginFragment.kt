@@ -18,6 +18,7 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.firebase.auth.FirebaseUser
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
@@ -59,6 +60,25 @@ class LoginFragment : Fragment() {
                 }
             }
         }*/
+
+
+        lifecycleScope.launchWhenStarted {
+            appViewModel.getLoginResult().collectLatest { result ->
+                if (result != null && result.isSuccessful) {
+
+
+                    Toast.makeText(context, "Login completato", Toast.LENGTH_SHORT).show()
+
+                    findNavController().navigate(R.id.ordinitestFragment)
+
+
+                    progressLog.visibility = View.INVISIBLE
+                    logBtn.visibility = View.VISIBLE
+                }else {
+                    Toast.makeText(context, "suca + ", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
 
 
 

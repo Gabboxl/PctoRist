@@ -20,6 +20,7 @@ class PctoRistRepository(application: Application) {
     private var auth: FirebaseAuth
     private var currentUser: FirebaseUser?
     private var registraresult: MutableSharedFlow<Task<AuthResult>?>
+    private var loginresult: MutableSharedFlow<Task<AuthResult>?>
     private var loggedoutMutableStateFlow: MutableStateFlow<Boolean>
     private var firebaseUser: FirebaseUser?
 
@@ -30,6 +31,7 @@ class PctoRistRepository(application: Application) {
         currentUser = auth.currentUser
         loggedoutMutableStateFlow = MutableStateFlow(false)
         registraresult = MutableStateFlow(null)
+        loginresult = MutableStateFlow(null)
         firebaseUser = auth.currentUser
     }
 
@@ -85,6 +87,10 @@ class PctoRistRepository(application: Application) {
 
     fun getRegistraResult(): MutableSharedFlow<Task<AuthResult>?>{
         return registraresult
+    }
+
+    fun getLoginResult(): MutableSharedFlow<Task<AuthResult>?>{
+        return loginresult
     }
 
     fun getloggedoutMutableLiveData(): MutableStateFlow<Boolean>{

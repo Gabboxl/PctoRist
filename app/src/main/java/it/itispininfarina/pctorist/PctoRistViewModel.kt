@@ -16,12 +16,14 @@ class PctoRistViewModel(@Nonnull application: Application) : AndroidViewModel(ap
     private var repository: PctoRistRepository = PctoRistRepository(application)
     private var loggedoutMutableLiveData: MutableStateFlow<Boolean>
     private var registraResult: MutableSharedFlow<Task<AuthResult>?>
+    private var loginresult: MutableSharedFlow<Task<AuthResult>?>
     private var firebaseUser: FirebaseUser?
 
         init {
             firebaseUser = repository.getFirebaseUser()
             repository = PctoRistRepository(application)
             registraResult = repository.getRegistraResult()
+            loginresult = repository.getLoginResult()
             loggedoutMutableLiveData = repository.getloggedoutMutableLiveData()
         }
 
@@ -36,6 +38,10 @@ class PctoRistViewModel(@Nonnull application: Application) : AndroidViewModel(ap
 
     fun getRegistraResult(): MutableSharedFlow<Task<AuthResult>?>{
         return registraResult
+    }
+
+    fun getLoginResult(): MutableSharedFlow<Task<AuthResult>?>{
+        return loginresult
     }
 
     fun getFirebaseUser(): FirebaseUser?{
