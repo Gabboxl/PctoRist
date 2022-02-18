@@ -1,15 +1,7 @@
 package it.itispininfarina.pctorist
 
-import android.content.Intent
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuInflater
-import android.view.MenuItem
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.coordinatorlayout.widget.CoordinatorLayout
-import androidx.core.content.ContentProviderCompat.requireContext
-import androidx.drawerlayout.widget.DrawerLayout
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
@@ -18,8 +10,6 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.android.material.navigation.NavigationView
 import it.itispininfarina.pctorist.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -46,7 +36,7 @@ class MainActivity : AppCompatActivity() {
 
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.homeFragment, R.id.sessioneFragment, R.id.inforistFragment, R.id.loginFragment, R.id.ordinitestFragment, R.id.storicoFragment //questi sono i fragment top level, non verrà visualizzata la freccia indietro nella toolbar per i fragments specificati qua
+                R.id.homeFragment, R.id.sessioneFragment, R.id.inforistFragment, R.id.loginFragment, R.id.ordiniFragment, R.id.storicoFragment //questi sono i fragment top level, non verrà visualizzata la freccia indietro nella toolbar per i fragments specificati qua
             )
         )
         setupActionBarWithNavController(navController, appBarConfiguration)

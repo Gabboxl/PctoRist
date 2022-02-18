@@ -8,18 +8,13 @@ import android.widget.EditText
 import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.viewModelScope
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import com.google.firebase.auth.FirebaseUser
-import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
@@ -57,19 +52,26 @@ class RegistraFragment : Fragment() {
 
         lifecycleScope.launchWhenStarted {
             appViewModel.getRegistraResult().collect { result ->
-                if (result != null && result.isSuccessful) {
+                if (result.isSuccessful) {
 
 
                     Toast.makeText(context, "Registrazione completata", Toast.LENGTH_SHORT).show()
 
-                    findNavController().navigate(R.id.ordinitestFragment)
+                    findNavController().navigate(R.id.ordiniFragment)
 
 
-                    progressRegistra.visibility = View.INVISIBLE
-                    registrabtn.visibility = View.VISIBLE
+
                 }else {
-                    Toast.makeText(context, "suca + ", Toast.LENGTH_SHORT).show()
+                     MaterialAlertDialogBuilder(requireContext())
+                        .setTitle("Errore")
+                        .setMessage(result.exception?.localizedMessage)
+                        .setPositiveButton("Ok") { dialog, which ->
+                        }
+                        .show()
                 }
+
+                progressRegistra.visibility = View.INVISIBLE
+                registrabtn.visibility = View.VISIBLE
             }
         }
 

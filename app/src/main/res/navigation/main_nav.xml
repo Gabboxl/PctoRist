@@ -19,7 +19,7 @@
             app:destination="@id/loginFragment" />
         <action
             android:id="@+id/action_sessioneFragment_to_ordinitestFragment"
-            app:destination="@id/ordinitestFragment" />
+            app:destination="@id/ordiniFragment" />
     </fragment>
 
     <fragment
@@ -41,7 +41,7 @@
         tools:layout="@layout/fragment_login" >
         <action
             android:id="@+id/action_loginFragment_to_ordinitestFragment"
-            app:destination="@id/ordinitestFragment" />
+            app:destination="@id/ordiniFragment" />
         <action
             android:id="@+id/action_loginFragment_to_registraFragment"
             app:destination="@id/registraFragment" />
@@ -57,10 +57,10 @@
         tools:layout="@layout/fragment_registra" >
         <action
             android:id="@+id/action_registraFragment_to_ordinitestFragment"
-            app:destination="@id/ordinitestFragment" />
+            app:destination="@id/ordiniFragment" />
     </fragment>
     <fragment
-        android:id="@+id/ordinitestFragment"
+        android:id="@+id/ordiniFragment"
         android:name="it.itispininfarina.pctorist.OrdiniFragment"
         android:label="Il tuo ordine"
         tools:layout="@layout/fragment_ordini" />

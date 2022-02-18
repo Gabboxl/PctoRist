@@ -2,28 +2,28 @@ package it.itispininfarina.pctorist
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.viewModelScope
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseUser
-import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.SharedFlow
+import kotlinx.coroutines.launch
 import javax.annotation.Nonnull
 
 class PctoRistViewModel(@Nonnull application: Application) : AndroidViewModel(application) {
     private var repository: PctoRistRepository = PctoRistRepository(application)
     private var loggedoutMutableLiveData: MutableStateFlow<Boolean>
-    private var registraResult: MutableSharedFlow<Task<AuthResult>?>
-    private var loginresult: MutableSharedFlow<Task<AuthResult>?>
-    private var firebaseUser: FirebaseUser?
+    private var registraResult: MutableSharedFlow<Task<AuthResult>>
+    private var loginresultshared: SharedFlow<Task<AuthResult>>
+    private var firebaseUser: MutableStateFlow<FirebaseUser?>
 
         init {
-            firebaseUser = repository.getFirebaseUser()
             repository = PctoRistRepository(application)
+            firebaseUser = repository.getFirebaseUser()
             registraResult = repository.getRegistraResult()
-            loginresult = repository.getLoginResult()
+            loginresultshared = repository.getLoginResult()
             loggedoutMutableLiveData = repository.getloggedoutMutableLiveData()
         }
 
@@ -32,19 +32,21 @@ class PctoRistViewModel(@Nonnull application: Application) : AndroidViewModel(ap
     }
 
     fun login(email: String, password: String){
-        repository.login(email, password)
+        viewModelScope.launch {
+            repository.login(email, password)
+        }
     }
 
 
-    fun getRegistraResult(): MutableSharedFlow<Task<AuthResult>?>{
+    fun getRegistraResult(): MutableSharedFlow<Task<AuthResult>>{
         return registraResult
     }
 
-    fun getLoginResult(): MutableSharedFlow<Task<AuthResult>?>{
-        return loginresult
+    fun getLoginResult(): SharedFlow<Task<AuthResult>>{
+        return loginresultshared
     }
 
-    fun getFirebaseUser(): FirebaseUser?{
+    fun getFirebaseUser(): MutableStateFlow<FirebaseUser?>{
         return firebaseUser
     }
 
