@@ -31,22 +31,14 @@ class SessioneFragment : Fragment() {
                 .build()
 
             findNavController().navigate(R.id.ordiniFragment, null, navOptions)
-            Toast.makeText(
-                context,
-                "Hey sei già loggato + ",
-                Toast.LENGTH_SHORT
-            ).show()
+            //Toast.makeText(context, "Hey sei già loggato + ", Toast.LENGTH_SHORT).show()
         } else {
             val startDestination = findNavController().graph.startDestinationId
             val navOptions = NavOptions.Builder()
                 .setPopUpTo(startDestination, false)
                 .build()
             findNavController().navigate(R.id.loginFragment, null, navOptions)
-            Toast.makeText(
-                context,
-                "heu non sei loggcatowttff + " + appViewModel.getFirebaseUser().value + Firebase.auth.currentUser,
-                Toast.LENGTH_SHORT
-            ).show()
+            //Toast.makeText(context, "heu non sei loggcatowttff + " + appViewModel.getFirebaseUser().value + Firebase.auth.currentUser, Toast.LENGTH_SHORT).show()
         }
     }
 

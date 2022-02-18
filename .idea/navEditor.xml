@@ -13,8 +13,8 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="-227" />
-                            <option name="y" value="-121" />
+                            <option name="x" value="-290" />
+                            <option name="y" value="-213" />
                           </Point>
                         </option>
                       </LayoutPositions>
@@ -63,13 +63,13 @@
                       </LayoutPositions>
                     </value>
                   </entry>
-                  <entry key="ordinitestFragment">
+                  <entry key="ordiniFragment">
                     <value>
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="535" />
-                            <option name="y" value="551" />
+                            <option name="x" value="590" />
+                            <option name="y" value="570" />
                           </Point>
                         </option>
                       </LayoutPositions>
@@ -139,8 +139,8 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="12" />
-                            <option name="y" value="12" />
+                            <option name="x" value="-228" />
+                            <option name="y" value="1088" />
                           </Point>
                         </option>
                       </LayoutPositions>

@@ -8,6 +8,8 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.NavOptions
+import androidx.navigation.fragment.findNavController
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.coroutines.launch
 
@@ -44,14 +46,20 @@ class OrdiniFragment : Fragment(), View.OnClickListener {
                        // Respond to neutral button press
                    }*/
                 .setNegativeButton("Annulla") { dialog, which ->
-                    Toast.makeText(context, "ok tranguillo", Toast.LENGTH_SHORT).show()
+                    //Toast.makeText(context, "ok tranguillo", Toast.LENGTH_SHORT).show()
                 }
                 .setPositiveButton("Si") { dialog, which ->
-                    lifecycleScope.launch {
                         appViewModel.logout()
-                    }
 
-                    Toast.makeText(context, "Ok sei stato sloggato", Toast.LENGTH_SHORT).show()
+                    val startDestination = findNavController().graph.startDestinationId
+                    val navOptions = NavOptions.Builder()
+                        .setPopUpTo(startDestination, false)
+                        .build()
+
+                    findNavController().navigate(R.id.sessioneFragment, null, navOptions)
+
+
+                    Toast.makeText(context, "Logout completato", Toast.LENGTH_SHORT).show()
                 }
                 .show()
 

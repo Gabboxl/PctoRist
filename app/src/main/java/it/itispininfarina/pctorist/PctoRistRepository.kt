@@ -41,7 +41,10 @@ class PctoRistRepository(application: Application) {
         result.addOnCompleteListener {
             runBlocking {
                 registraresult.emit(it)
-                firebaseUser.emit(auth.currentUser)
+
+                if(result.isSuccessful) {
+                    firebaseUser.emit(it.result?.user)
+                }
             }
         }
     }
@@ -52,8 +55,11 @@ class PctoRistRepository(application: Application) {
         result.addOnCompleteListener {
             runBlocking {
                 _loginresult.emit(it)
-                loggedoutMutableStateFlow.emit(false)
-                firebaseUser.emit(it.result?.user)
+                //loggedoutMutableStateFlow.emit(false)
+
+                if(result.isSuccessful) {
+                    firebaseUser.emit(it.result?.user)
+                }
             }
 
         }

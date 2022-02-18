@@ -54,6 +54,8 @@ class LoginFragment : Fragment() {
 
                 progressLog.visibility = View.INVISIBLE
                 logBtn.visibility = View.VISIBLE
+                creaAccountBtn.isEnabled = true
+                passDimenticataBtn.isEnabled = true
             }
         }
 
@@ -73,6 +75,8 @@ class LoginFragment : Fragment() {
             if (emailLog.text.toString().isNotEmpty() && passLog.text.toString().isNotEmpty()) {
                 progressLog.visibility = View.VISIBLE
                 logBtn.visibility = View.INVISIBLE
+                creaAccountBtn.isEnabled = false
+                passDimenticataBtn.isEnabled = false
                 appViewModel.login(emailLog.text.toString(), passLog.text.toString())
 
             } else {

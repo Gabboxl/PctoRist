@@ -28,7 +28,9 @@ class PctoRistViewModel(@Nonnull application: Application) : AndroidViewModel(ap
     }
 
     suspend fun registra(email: String, password: String) {
-        repository.registra(email, password)
+        viewModelScope.launch {
+            repository.registra(email, password)
+        }
     }
 
     fun login(email: String, password: String) {
@@ -54,8 +56,10 @@ class PctoRistViewModel(@Nonnull application: Application) : AndroidViewModel(ap
         return loggedoutMutableLiveData
     }
 
-    suspend fun logout() {
-        repository.logout()
+    fun logout() {
+        viewModelScope.launch {
+            repository.logout()
+        }
     }
 
 }
