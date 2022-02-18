@@ -64,4 +64,9 @@
         android:name="it.itispininfarina.pctorist.OrdiniFragment"
         android:label="Il tuo ordine"
         tools:layout="@layout/fragment_ordini" />
+    <fragment
+        android:id="@+id/storicoFragment"
+        android:name="it.itispininfarina.pctorist.StoricoFragment"
+        android:label="Ordini effettuati"
+        tools:layout="@layout/fragment_storico" />
 </navigation>
