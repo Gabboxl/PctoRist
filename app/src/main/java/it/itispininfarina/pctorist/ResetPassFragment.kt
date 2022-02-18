@@ -42,8 +42,6 @@ class ResetPassFragment : Fragment() {
                     textcomplete.visibility = View.VISIBLE
                     Toast.makeText(context, "Link inviato correttamente", Toast.LENGTH_SHORT).show()
 
-                    findNavController().navigate(R.id.ordiniFragment)
-
 
                 } else {
                     MaterialAlertDialogBuilder(requireContext())
