@@ -7,6 +7,7 @@ import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.ktx.Firebase
+import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import javax.annotation.Nonnull
@@ -14,7 +15,7 @@ import javax.annotation.Nonnull
 class PctoRistViewModel(@Nonnull application: Application) : AndroidViewModel(application) {
     private var repository: PctoRistRepository = PctoRistRepository(application)
     private var loggedoutMutableLiveData: MutableStateFlow<Boolean>
-    private var registraResult: MutableStateFlow<Task<AuthResult>?>
+    private var registraResult: MutableSharedFlow<Task<AuthResult>?>
     private var firebaseUser: FirebaseUser?
 
         init {
@@ -33,7 +34,7 @@ class PctoRistViewModel(@Nonnull application: Application) : AndroidViewModel(ap
     }
 
 
-    fun getRegistraResult(): MutableStateFlow<Task<AuthResult>?>{
+    fun getRegistraResult(): MutableSharedFlow<Task<AuthResult>?>{
         return registraResult
     }
 

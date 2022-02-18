@@ -9,6 +9,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.flow
@@ -18,7 +19,7 @@ import kotlinx.coroutines.tasks.await
 class PctoRistRepository(application: Application) {
     private var auth: FirebaseAuth
     private var currentUser: FirebaseUser?
-    private var registraresult: MutableStateFlow<Task<AuthResult>?>
+    private var registraresult: MutableSharedFlow<Task<AuthResult>?>
     private var loggedoutMutableStateFlow: MutableStateFlow<Boolean>
     private var firebaseUser: FirebaseUser?
 
@@ -82,7 +83,7 @@ class PctoRistRepository(application: Application) {
         return firebaseUser
     }
 
-    fun getRegistraResult(): MutableStateFlow<Task<AuthResult>?>{
+    fun getRegistraResult(): MutableSharedFlow<Task<AuthResult>?>{
         return registraresult
     }
 

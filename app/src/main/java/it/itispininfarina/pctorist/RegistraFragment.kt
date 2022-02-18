@@ -56,7 +56,7 @@ class RegistraFragment : Fragment() {
 
 
         lifecycleScope.launchWhenStarted {
-            appViewModel.getRegistraResult().collectLatest { result ->
+            appViewModel.getRegistraResult().collect { result ->
                 if (result != null && result.isSuccessful) {
 
 
