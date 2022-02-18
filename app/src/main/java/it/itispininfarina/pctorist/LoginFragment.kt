@@ -1,7 +1,6 @@
 package it.itispininfarina.pctorist
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,6 +8,7 @@ import android.widget.Button
 import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
@@ -18,11 +18,6 @@ import kotlinx.coroutines.flow.collectLatest
 
 class LoginFragment : Fragment() {
     private val appViewModel: PctoRistViewModel by activityViewModels()
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -48,8 +43,7 @@ class LoginFragment : Fragment() {
                     findNavController().navigate(R.id.ordiniFragment)
 
 
-
-                }else {
+                } else {
                     MaterialAlertDialogBuilder(requireContext())
                         .setTitle("Errore")
                         .setMessage(result.exception?.localizedMessage)
@@ -76,10 +70,10 @@ class LoginFragment : Fragment() {
 
 
         logBtn.setOnClickListener {
-            if(emailLog.text.toString().isNotEmpty() && passLog.text.toString().isNotEmpty()) {
-                        progressLog.visibility = View.VISIBLE
-                        logBtn.visibility = View.INVISIBLE
-                    appViewModel.login(emailLog.text.toString(), passLog.text.toString())
+            if (emailLog.text.toString().isNotEmpty() && passLog.text.toString().isNotEmpty()) {
+                progressLog.visibility = View.VISIBLE
+                logBtn.visibility = View.INVISIBLE
+                appViewModel.login(emailLog.text.toString(), passLog.text.toString())
 
             } else {
                 val dialogerror = MaterialAlertDialogBuilder(requireContext())

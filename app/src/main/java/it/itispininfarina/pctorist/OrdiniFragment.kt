@@ -1,34 +1,31 @@
 package it.itispininfarina.pctorist
 
-import android.app.AlertDialog
-import android.content.DialogInterface
 import android.os.Bundle
 import android.view.*
+import android.widget.ImageButton
+import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
-import android.widget.*
-import android.widget.Toast.*
-import androidx.core.view.get
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import kotlinx.coroutines.NonCancellable.cancel
 import kotlinx.coroutines.launch
 
 
-class OrdiniFragment : Fragment(), View.OnClickListener  {
+class OrdiniFragment : Fragment(), View.OnClickListener {
     private val appViewModel: PctoRistViewModel by activityViewModels()
 
-    lateinit var conto : TextView
-    lateinit var quanPB : TextView
-    lateinit var quanLas : TextView
-    lateinit var quanPP : TextView
-    lateinit var quanCot : TextView
-    lateinit var quanBistec : TextView
-    lateinit var quanTiramisu : TextView
-    lateinit var quanCrostata : TextView
+    lateinit var conto: TextView
+    lateinit var quanPB: TextView
+    lateinit var quanLas: TextView
+    lateinit var quanPP: TextView
+    lateinit var quanCot: TextView
+    lateinit var quanBistec: TextView
+    lateinit var quanTiramisu: TextView
+    lateinit var quanCrostata: TextView
     var prezzo = 0.0
     var prezzoUnitario = arrayOf(6.0, 10.0, 8.0, 12.0, 20.0, 6.5, 6.0)
-    var quantity = arrayOf (0, 0, 0, 0, 0, 0, 0)
+    var quantity = arrayOf(0, 0, 0, 0, 0, 0, 0)
 
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -40,28 +37,27 @@ class OrdiniFragment : Fragment(), View.OnClickListener  {
     override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
         R.id.options_logout -> {
 
-                val dialog = MaterialAlertDialogBuilder(requireContext())
-                    .setTitle("Sei sicuro?")
-                    .setMessage("Vuoi davvero sloggarti?")
-                 /*   .setNeutralButton("aspe") { dialog, which ->
-                        // Respond to neutral button press
-                    }*/
-                    .setNegativeButton("Annulla") { dialog, which ->
-                        Toast.makeText(context, "ok tranguillo", Toast.LENGTH_SHORT).show()
+            val dialog = MaterialAlertDialogBuilder(requireContext())
+                .setTitle("Sei sicuro?")
+                .setMessage("Vuoi davvero sloggarti?")
+                /*   .setNeutralButton("aspe") { dialog, which ->
+                       // Respond to neutral button press
+                   }*/
+                .setNegativeButton("Annulla") { dialog, which ->
+                    Toast.makeText(context, "ok tranguillo", Toast.LENGTH_SHORT).show()
+                }
+                .setPositiveButton("Si") { dialog, which ->
+                    lifecycleScope.launch {
+                        appViewModel.logout()
                     }
-                    .setPositiveButton("Si") { dialog, which ->
-                        lifecycleScope.launch {
-                            appViewModel.logout()
-                        }
 
-                        Toast.makeText(context, "Ok sei stato sloggato", Toast.LENGTH_SHORT).show()
-                    }
-                    .show()
+                    Toast.makeText(context, "Ok sei stato sloggato", Toast.LENGTH_SHORT).show()
+                }
+                .show()
 
 
             true
         }
-
 
 
         else -> {
@@ -70,7 +66,6 @@ class OrdiniFragment : Fragment(), View.OnClickListener  {
             super.onOptionsItemSelected(item)
         }
     }
-
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -144,125 +139,118 @@ class OrdiniFragment : Fragment(), View.OnClickListener  {
     }
 
     override fun onClick(parent: View) {
-        when(parent.id){
+        when (parent.id) {
             R.id.addB1 -> {
                 quantity[0]++
-                quanPB.text = ""+quantity[0]
+                quanPB.text = "" + quantity[0]
                 prezzo += prezzoUnitario[0]
                 conto.text = "$prezzo"
             }
             R.id.addB2 -> {
                 quantity[1]++
-                quanLas.text = ""+quantity[1]
+                quanLas.text = "" + quantity[1]
                 prezzo += prezzoUnitario[1]
                 conto.text = "$prezzo"
             }
             R.id.addB3 -> {
                 quantity[2]++
-                quanPP.text = ""+quantity[2]
+                quanPP.text = "" + quantity[2]
                 prezzo += prezzoUnitario[2]
                 conto.text = "$prezzo"
             }
             R.id.addB4 -> {
                 quantity[3]++
-                quanCot.text = ""+quantity[3]
+                quanCot.text = "" + quantity[3]
                 prezzo += prezzoUnitario[3]
                 conto.text = "$prezzo"
             }
             R.id.addB5 -> {
                 quantity[4]++
-                quanBistec.text = ""+quantity[4]
+                quanBistec.text = "" + quantity[4]
                 prezzo += prezzoUnitario[4]
                 conto.text = "$prezzo"
             }
             R.id.addB6 -> {
                 quantity[5]++
-                quanTiramisu.text = ""+quantity[5]
+                quanTiramisu.text = "" + quantity[5]
                 prezzo += prezzoUnitario[5]
                 conto.text = "$prezzo"
             }
             R.id.addB7 -> {
                 quantity[6]++
-                quanCrostata.text = ""+quantity[6]
+                quanCrostata.text = "" + quantity[6]
                 prezzo += prezzoUnitario[6]
                 conto.text = "$prezzo"
             }
             R.id.removeB1 -> {
-                if(quantity[0]>0) {
+                if (quantity[0] > 0) {
                     quantity[0]--
                     prezzo -= prezzoUnitario[0]
                     conto.text = "$prezzo"
+                } else {
+                    quantity[0] = 0
                 }
-                else{
-                    quantity[0]=0
-                }
-                quanPB.text = ""+quantity[0]
+                quanPB.text = "" + quantity[0]
             }
             R.id.removeB2 -> {
-                if(quantity[1]>0) {
+                if (quantity[1] > 0) {
                     quantity[1]--
                     prezzo -= prezzoUnitario[1]
                     conto.text = "$prezzo"
+                } else {
+                    quantity[1] = 0
                 }
-                else{
-                    quantity[1]=0
-                }
-                quanLas.text = ""+quantity[1]
+                quanLas.text = "" + quantity[1]
             }
             R.id.removeB3 -> {
-                if(quantity[2]>0) {
+                if (quantity[2] > 0) {
                     quantity[2]--
                     prezzo -= prezzoUnitario[2]
                     conto.text = "$prezzo"
+                } else {
+                    quantity[2] = 0
                 }
-                else{
-                    quantity[2]=0
-                }
-                quanPP.text = ""+quantity[2]
+                quanPP.text = "" + quantity[2]
             }
             R.id.removeB4 -> {
-                if(quantity[3]>0) {
+                if (quantity[3] > 0) {
                     quantity[3]--
                     prezzo -= prezzoUnitario[3]
                     conto.text = "$prezzo"
+                } else {
+                    quantity[3] = 0
                 }
-                else{
-                    quantity[3]=0
-                }
-                quanCot.text = ""+quantity[3]
+                quanCot.text = "" + quantity[3]
             }
             R.id.removeB5 -> {
-                if(quantity[4]>0) {
+                if (quantity[4] > 0) {
                     quantity[4]--
                     prezzo -= prezzoUnitario[4]
                     conto.text = "$prezzo"
+                } else {
+                    quantity[3] = 0
                 }
-                else{
-                    quantity[3]=0
-                }
-                quanBistec.text = ""+quantity[4]
+                quanBistec.text = "" + quantity[4]
             }
             R.id.removeB6 -> {
-                if(quantity[5]>0) {
+                if (quantity[5] > 0) {
                     quantity[5]--
                     prezzo -= prezzoUnitario[5]
                     conto.text = "$prezzo"
+                } else {
+                    quantity[5] = 0
                 }
-                else{
-                    quantity[5]=0
-                }
-                quanTiramisu.text = ""+quantity[5]
+                quanTiramisu.text = "" + quantity[5]
             }
             R.id.removeB7 -> {
-                if(quantity[6]>0) {
+                if (quantity[6] > 0) {
                     quantity[6]--
                     prezzo -= prezzoUnitario[6]
                     conto.text = "$prezzo"
+                } else {
+                    quantity[6] = 0
                 }
-                else{
-                    quantity[6]=0
-                }
-                quanCrostata.text = ""+quantity[6]
+                quanCrostata.text = "" + quantity[6]
             }
 
         }

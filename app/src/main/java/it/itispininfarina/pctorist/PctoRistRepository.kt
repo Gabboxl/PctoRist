@@ -3,20 +3,17 @@ package it.itispininfarina.pctorist
 import android.app.Application
 import android.content.ContentValues
 import android.util.Log
-import androidx.compose.runtime.MutableState
-import androidx.compose.runtime.currentRecomposeScope
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.flow.*
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.flow.MutableSharedFlow
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.SharedFlow
+import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.runBlocking
-import kotlinx.coroutines.tasks.await
-import kotlin.coroutines.coroutineContext
 
 
 class PctoRistRepository(application: Application) {
@@ -36,36 +33,37 @@ class PctoRistRepository(application: Application) {
         loggedoutMutableStateFlow = MutableStateFlow(true)
         firebaseUser = MutableStateFlow(auth.currentUser)
 
-    //    loginresult = MutableSharedFlow<Task<AuthResult>?>().asSharedFlow()
+        //    loginresult = MutableSharedFlow<Task<AuthResult>?>().asSharedFlow()
     }
 
-    suspend fun registra(email: String, password: String)  {
+    suspend fun registra(email: String, password: String) {
         val result = auth.createUserWithEmailAndPassword(email, password)
-        result.addOnCompleteListener {  runBlocking {
-            registraresult.emit(it)
-            firebaseUser.emit(auth.currentUser)
-        } }
+        result.addOnCompleteListener {
+            runBlocking {
+                registraresult.emit(it)
+                firebaseUser.emit(auth.currentUser)
+            }
+        }
     }
-
 
 
     suspend fun login(email: String, password: String) {
         val result = auth.signInWithEmailAndPassword(email, password)
-        result.addOnCompleteListener {  runBlocking {
-            _loginresult.emit(it)
-            loggedoutMutableStateFlow.emit(false)
-            firebaseUser.emit(it.result?.user)
-        }
+        result.addOnCompleteListener {
+            runBlocking {
+                _loginresult.emit(it)
+                loggedoutMutableStateFlow.emit(false)
+                firebaseUser.emit(it.result?.user)
+            }
 
         }
 
     }
 
-    fun resetPassword(email: String){
+    fun resetPassword(email: String) {
         auth.sendPasswordResetEmail(email)
-            .addOnCompleteListener{ task ->
-                if (task.isSuccessful)
-                {
+            .addOnCompleteListener { task ->
+                if (task.isSuccessful) {
 
                     Log.d(ContentValues.TAG, "sendPasswordResetEmail:success")
 
@@ -81,19 +79,19 @@ class PctoRistRepository(application: Application) {
         firebaseUser.emit(auth.currentUser)
     }
 
-    fun getFirebaseUser(): MutableStateFlow<FirebaseUser?>{
+    fun getFirebaseUser(): MutableStateFlow<FirebaseUser?> {
         return firebaseUser
     }
 
-    fun getRegistraResult(): MutableSharedFlow<Task<AuthResult>>{
+    fun getRegistraResult(): MutableSharedFlow<Task<AuthResult>> {
         return registraresult
     }
 
-    fun getLoginResult(): SharedFlow<Task<AuthResult>>{
+    fun getLoginResult(): SharedFlow<Task<AuthResult>> {
         return loginresultshared
     }
 
-    fun getloggedoutMutableLiveData(): MutableStateFlow<Boolean>{
+    fun getloggedoutMutableLiveData(): MutableStateFlow<Boolean> {
         return loggedoutMutableStateFlow
     }
 

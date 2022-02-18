@@ -1,16 +1,16 @@
 package it.itispininfarina.pctorist
 
 import android.os.Bundle
-import android.view.*
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
-import kotlinx.coroutines.flow.collectLatest
 
 
 class SessioneFragment : Fragment() {
@@ -23,42 +23,32 @@ class SessioneFragment : Fragment() {
         //qua NON si mette l'osservatore per i cambiamenti dello stato dell'utente firebase perchè questo fragment viene ammazzato quando viene avviato subito il fragment di registrazione alla fine di questo OnCreate().
 
 
+        if (appViewModel.getFirebaseUser().value != null) {
 
+            val startDestination = findNavController().graph.startDestinationId
+            val navOptions = NavOptions.Builder()
+                .setPopUpTo(startDestination, false)
+                .build()
 
-
-                if (appViewModel.getFirebaseUser().value != null) {
-
-                    val startDestination = findNavController().graph.startDestinationId
-                    val navOptions = NavOptions.Builder()
-                        .setPopUpTo(startDestination, false)
-                        .build()
-
-                    findNavController().navigate(R.id.ordiniFragment, null, navOptions)
-                    Toast.makeText(
-                        context,
-                        "Hey sei già loggato + ",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                } else {
-                    val startDestination = findNavController().graph.startDestinationId
-                    val navOptions = NavOptions.Builder()
-                        .setPopUpTo(startDestination, false)
-                        .build()
-                    findNavController().navigate(R.id.loginFragment, null, navOptions)
-                    Toast.makeText(
-                        context,
-                        "heu non sei loggcatowttff + " + appViewModel.getFirebaseUser().value + Firebase.auth.currentUser,
-                        Toast.LENGTH_SHORT
-                    ).show()
-                }
-            }
-
-
-
-
-
-
-
+            findNavController().navigate(R.id.ordiniFragment, null, navOptions)
+            Toast.makeText(
+                context,
+                "Hey sei già loggato + ",
+                Toast.LENGTH_SHORT
+            ).show()
+        } else {
+            val startDestination = findNavController().graph.startDestinationId
+            val navOptions = NavOptions.Builder()
+                .setPopUpTo(startDestination, false)
+                .build()
+            findNavController().navigate(R.id.loginFragment, null, navOptions)
+            Toast.makeText(
+                context,
+                "heu non sei loggcatowttff + " + appViewModel.getFirebaseUser().value + Firebase.auth.currentUser,
+                Toast.LENGTH_SHORT
+            ).show()
+        }
+    }
 
 
     override fun onCreateView(

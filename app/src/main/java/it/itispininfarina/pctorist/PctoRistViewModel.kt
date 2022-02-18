@@ -19,43 +19,42 @@ class PctoRistViewModel(@Nonnull application: Application) : AndroidViewModel(ap
     private var loginresultshared: SharedFlow<Task<AuthResult>>
     private var firebaseUser: MutableStateFlow<FirebaseUser?>
 
-        init {
-            repository = PctoRistRepository(application)
-            firebaseUser = repository.getFirebaseUser()
-            registraResult = repository.getRegistraResult()
-            loginresultshared = repository.getLoginResult()
-            loggedoutMutableLiveData = repository.getloggedoutMutableLiveData()
-        }
+    init {
+        repository = PctoRistRepository(application)
+        firebaseUser = repository.getFirebaseUser()
+        registraResult = repository.getRegistraResult()
+        loginresultshared = repository.getLoginResult()
+        loggedoutMutableLiveData = repository.getloggedoutMutableLiveData()
+    }
 
-    suspend fun registra(email: String, password: String){
+    suspend fun registra(email: String, password: String) {
         repository.registra(email, password)
     }
 
-    fun login(email: String, password: String){
+    fun login(email: String, password: String) {
         viewModelScope.launch {
             repository.login(email, password)
         }
     }
 
 
-    fun getRegistraResult(): MutableSharedFlow<Task<AuthResult>>{
+    fun getRegistraResult(): MutableSharedFlow<Task<AuthResult>> {
         return registraResult
     }
 
-    fun getLoginResult(): SharedFlow<Task<AuthResult>>{
+    fun getLoginResult(): SharedFlow<Task<AuthResult>> {
         return loginresultshared
     }
 
-    fun getFirebaseUser(): MutableStateFlow<FirebaseUser?>{
+    fun getFirebaseUser(): MutableStateFlow<FirebaseUser?> {
         return firebaseUser
     }
 
-    fun getloggedoutMutableLiveData(): MutableStateFlow<Boolean>
-    {
+    fun getloggedoutMutableLiveData(): MutableStateFlow<Boolean> {
         return loggedoutMutableLiveData
     }
 
-    suspend fun logout(){
+    suspend fun logout() {
         repository.logout()
     }
 

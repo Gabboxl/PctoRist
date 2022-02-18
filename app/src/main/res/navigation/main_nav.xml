@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:id="@+id/main_nav"
-        app:startDestination="@id/homeFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav"
+    app:startDestination="@id/homeFragment">
 
     <fragment
-            android:id="@+id/homeFragment"
-            android:name="it.itispininfarina.pctorist.MenuFragment"
-            android:label="Duchi di Nardò"
-            tools:layout="@layout/fragment_menu" />
+        android:id="@+id/homeFragment"
+        android:name="it.itispininfarina.pctorist.MenuFragment"
+        android:label="Duchi di Nardò"
+        tools:layout="@layout/fragment_menu" />
     <fragment
-            android:id="@+id/sessioneFragment"
-            android:name="it.itispininfarina.pctorist.SessioneFragment"
-            android:label="Caricamento...">
+        android:id="@+id/sessioneFragment"
+        android:name="it.itispininfarina.pctorist.SessioneFragment"
+        android:label="Caricamento...">
         <action
             android:id="@+id/action_sessioneFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
@@ -29,16 +29,16 @@
         tools:layout="@layout/fragment_reset_pass" />
 
     <fragment
-            android:id="@+id/inforistFragment"
-            android:name="it.itispininfarina.pctorist.InfoFragment"
-            android:label="Info ristorante"
-            tools:layout="@layout/fragment_info" />
+        android:id="@+id/inforistFragment"
+        android:name="it.itispininfarina.pctorist.InfoFragment"
+        android:label="Info ristorante"
+        tools:layout="@layout/fragment_info" />
 
     <fragment
         android:id="@+id/loginFragment"
         android:name="it.itispininfarina.pctorist.LoginFragment"
         android:label="Accedi"
-        tools:layout="@layout/fragment_login" >
+        tools:layout="@layout/fragment_login">
         <action
             android:id="@+id/action_loginFragment_to_ordinitestFragment"
             app:destination="@id/ordiniFragment" />
@@ -54,7 +54,7 @@
         android:id="@+id/registraFragment"
         android:name="it.itispininfarina.pctorist.RegistraFragment"
         android:label="Registrati"
-        tools:layout="@layout/fragment_registra" >
+        tools:layout="@layout/fragment_registra">
         <action
             android:id="@+id/action_registraFragment_to_ordinitestFragment"
             app:destination="@id/ordiniFragment" />

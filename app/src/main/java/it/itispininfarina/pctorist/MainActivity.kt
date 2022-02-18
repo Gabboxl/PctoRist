@@ -18,7 +18,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var appViewModel: PctoRistViewModel
 
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -36,7 +35,12 @@ class MainActivity : AppCompatActivity() {
 
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.homeFragment, R.id.sessioneFragment, R.id.inforistFragment, R.id.loginFragment, R.id.ordiniFragment, R.id.storicoFragment //questi sono i fragment top level, non verrà visualizzata la freccia indietro nella toolbar per i fragments specificati qua
+                R.id.homeFragment,
+                R.id.sessioneFragment,
+                R.id.inforistFragment,
+                R.id.loginFragment,
+                R.id.ordiniFragment,
+                R.id.storicoFragment //questi sono i fragment top level, non verrà visualizzata la freccia indietro nella toolbar per i fragments specificati qua
             )
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
