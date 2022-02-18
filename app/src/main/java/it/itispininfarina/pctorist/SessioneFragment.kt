@@ -5,14 +5,8 @@ import android.view.*
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.ktx.Firebase
 
 
 class SessioneFragment : Fragment() {
@@ -30,16 +24,16 @@ class SessioneFragment : Fragment() {
    //     Thread.sleep(2000)
 
 
-        if (appViewModel.getUserMutableLiveData().value != null) {
+        if (appViewModel.getFirebaseUser() != null) {
             findNavController().navigate(R.id.ordinitestFragment)
-            Toast.makeText(context, "Hey sei già loggato + " + appViewModel.getUserMutableLiveData().value, Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, "Hey sei già loggato + " + appViewModel.getFirebaseUser(), Toast.LENGTH_SHORT).show()
         } else {
             val startDestination = findNavController().graph.startDestinationId
             val navOptions = NavOptions.Builder()
                 .setPopUpTo(startDestination, false)
                 .build()
             findNavController().navigate(R.id.loginFragment, null, navOptions)
-            Toast.makeText(context, "heu non sei loggcatowttff + " + appViewModel.getUserMutableLiveData().value, Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, "heu non sei loggcatowttff + " + appViewModel.getFirebaseUser(), Toast.LENGTH_SHORT).show()
         }
     }
 

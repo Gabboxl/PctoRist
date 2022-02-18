@@ -40,13 +40,11 @@
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="@+id/loginButton"
         app:layout_constraintEnd_toEndOf="@+id/loginButton"
-        app:layout_constraintHorizontal_bias="0.506"
         app:layout_constraintStart_toStartOf="@+id/loginButton"
-        app:layout_constraintTop_toTopOf="@+id/loginButton"
-        app:layout_constraintVertical_bias="0.769" />
+        app:layout_constraintTop_toTopOf="@+id/loginButton"/>
 
     <Button
-        android:id="@+id/buttonResetPassword"
+        android:id="@+id/buttonNavigateResetPassword"
         style="@style/Widget.Material3.Button.ElevatedButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -57,7 +55,7 @@
         app:layout_constraintTop_toBottomOf="@+id/loginButton" />
 
     <Button
-        android:id="@+id/buttonCreaAccount"
+        android:id="@+id/buttonNavigateCreaAccount"
         style="@style/Widget.Material3.Button.ElevatedButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -65,7 +63,7 @@
         android:text="Non hai un account? Crealo qua"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonResetPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonNavigateResetPassword" />
 
     <EditText
         android:id="@+id/editPassLogin"
@@ -84,12 +82,12 @@
 
     <TextView
         android:id="@+id/textView19"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
         android:layout_marginRight="16dp"
-        android:text="Per effettuare l'ordine devi prima accedere!"
+        android:text="Per effettuare un ordine devi prima accedere!"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

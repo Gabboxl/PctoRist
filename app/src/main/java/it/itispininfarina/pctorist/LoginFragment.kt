@@ -11,11 +11,13 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
+import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.viewModelScope
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.firebase.auth.FirebaseUser
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
@@ -39,12 +41,13 @@ class LoginFragment : Fragment() {
         val passLog = layout.findViewById<TextView>(R.id.editPassLogin)
         val logBtn = layout.findViewById<Button>(R.id.loginButton)
         val progressLog = layout.findViewById<ProgressBar>(R.id.progressBarLogin)
-        val creaAccountBtn = layout.findViewById<Button>(R.id.buttonCreaAccount)
-        val passDimenticataBtn = layout.findViewById<Button>(R.id.buttonResetPassword)
+        val creaAccountBtn = layout.findViewById<Button>(R.id.buttonNavigateCreaAccount)
+        val passDimenticataBtn = layout.findViewById<Button>(R.id.buttonNavigateResetPassword)
 
-        appViewModel.getUserMutableLiveData().observe(viewLifecycleOwner, object : Observer<FirebaseUser?> {
-            override fun onChanged(firebaseUser: FirebaseUser?) {
-                if(firebaseUser != null){
+       /* lifecycleScope.launchWhenStarted {
+            appViewModel.getUserMutableStateFlow().collect {
+
+                if (it != null) {
 
                     Toast.makeText(context, "Login completato", Toast.LENGTH_SHORT).show()
 
@@ -55,8 +58,8 @@ class LoginFragment : Fragment() {
                     logBtn.visibility = View.VISIBLE
                 }
             }
+        }*/
 
-        })
 
 
         creaAccountBtn.setOnClickListener {

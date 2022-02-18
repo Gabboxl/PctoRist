@@ -9,8 +9,10 @@ import android.widget.*
 import android.widget.Toast.*
 import androidx.core.view.get
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.lifecycleScope
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.coroutines.NonCancellable.cancel
+import kotlinx.coroutines.launch
 
 
 class OrdiniFragment : Fragment(), View.OnClickListener  {
@@ -48,7 +50,9 @@ class OrdiniFragment : Fragment(), View.OnClickListener  {
                         Toast.makeText(context, "ok tranguillo", Toast.LENGTH_SHORT).show()
                     }
                     .setPositiveButton("Si") { dialog, which ->
-                        appViewModel.logout()
+                        lifecycleScope.launch {
+                            appViewModel.logout()
+                        }
 
                         Toast.makeText(context, "Ok sei stato sloggato", Toast.LENGTH_SHORT).show()
                     }

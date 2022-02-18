@@ -9,6 +9,7 @@ import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
+import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.viewModelScope
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
@@ -17,6 +18,8 @@ import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
@@ -46,15 +49,16 @@ class RegistraFragment : Fragment() {
         val mailRegistra = layout.findViewById<EditText>(R.id.editMailRegistra)
         val passRegistra = layout.findViewById<EditText>(R.id.editPassRegistra)
         val registrabtn = layout.findViewById<Button>(R.id.registraButton)
-        val scrivibtn = layout.findViewById<Button>(R.id.buttonScrivi)
-        val leggibtn = layout.findViewById<Button>(R.id.buttonLeggi)
+       // val scrivibtn = layout.findViewById<Button>(R.id.buttonScrivi)
+       // val leggibtn = layout.findViewById<Button>(R.id.buttonLeggi)
         val progressRegistra = layout.findViewById<ProgressBar>(R.id.progressBarRegistra)
 
 
 
-        appViewModel.getUserMutableLiveData().observe(viewLifecycleOwner, object : Observer<FirebaseUser?> {
-            override fun onChanged(firebaseUser: FirebaseUser?) {
-                if(firebaseUser != null){
+        lifecycleScope.launchWhenStarted {
+            appViewModel.getRegistraResult().collectLatest { result ->
+                if (result != null && result.isSuccessful) {
+
 
                     Toast.makeText(context, "Registrazione completata", Toast.LENGTH_SHORT).show()
 
@@ -63,10 +67,12 @@ class RegistraFragment : Fragment() {
 
                     progressRegistra.visibility = View.INVISIBLE
                     registrabtn.visibility = View.VISIBLE
+                }else {
+                    Toast.makeText(context, "suca + ", Toast.LENGTH_SHORT).show()
                 }
             }
+        }
 
-        })
 
 
 
@@ -96,7 +102,7 @@ class RegistraFragment : Fragment() {
         //inizializzo il database
         val db = Firebase.firestore
 
-        scrivibtn.setOnClickListener {
+      /*  scrivibtn.setOnClickListener {
             // Create a new user with a first and last name
             val usernuov = hashMapOf(
                 "first" to "Ada",
@@ -146,7 +152,7 @@ class RegistraFragment : Fragment() {
                         Toast.LENGTH_LONG
                     ).show()
                 }
-        }
+        }*/
 
         return layout
     }

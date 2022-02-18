@@ -3,21 +3,28 @@ package it.itispininfarina.pctorist
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
+import com.google.android.gms.tasks.Task
+import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.ktx.Firebase
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 import javax.annotation.Nonnull
 
 class PctoRistViewModel(@Nonnull application: Application) : AndroidViewModel(application) {
     private var repository: PctoRistRepository = PctoRistRepository(application)
-    private var userMutableLiveData: MutableLiveData<FirebaseUser>
-    private var loggedoutMutableLiveData: MutableLiveData<Boolean>
+    private var loggedoutMutableLiveData: MutableStateFlow<Boolean>
+    private var registraResult: MutableStateFlow<Task<AuthResult>?>
+    private var firebaseUser: FirebaseUser?
 
         init {
+            firebaseUser = repository.getFirebaseUser()
             repository = PctoRistRepository(application)
-            userMutableLiveData = repository.getUserMutableLiveData()
+            registraResult = repository.getRegistraResult()
             loggedoutMutableLiveData = repository.getloggedoutMutableLiveData()
         }
 
-    fun registra(email: String, password: String){
+    suspend fun registra(email: String, password: String){
         repository.registra(email, password)
     }
 
@@ -26,16 +33,20 @@ class PctoRistViewModel(@Nonnull application: Application) : AndroidViewModel(ap
     }
 
 
-    fun getUserMutableLiveData(): MutableLiveData<FirebaseUser>{
-        return userMutableLiveData
+    fun getRegistraResult(): MutableStateFlow<Task<AuthResult>?>{
+        return registraResult
     }
 
-    fun getloggedoutMutableLiveData(): MutableLiveData<Boolean>
+    fun getFirebaseUser(): FirebaseUser?{
+        return firebaseUser
+    }
+
+    fun getloggedoutMutableLiveData(): MutableStateFlow<Boolean>
     {
         return loggedoutMutableLiveData
     }
 
-    fun logout(){
+    suspend fun logout(){
         repository.logout()
     }
 

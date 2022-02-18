@@ -55,12 +55,12 @@ dependencies {
     implementation 'androidx.navigation:navigation-ui-ktx:2.5.0-alpha02'
     implementation 'androidx.navigation:navigation-fragment-ktx:2.5.0-alpha02'
 
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.2"
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2'
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.0"
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.0'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.6.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.2"
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2'
+
 
 
     // ViewModel
