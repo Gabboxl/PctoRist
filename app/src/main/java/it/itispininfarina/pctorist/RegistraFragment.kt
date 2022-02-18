@@ -48,7 +48,7 @@ class RegistraFragment : Fragment() {
                 if (result.isSuccessful) {
 
 
-                    Toast.makeText(context, "Registrazione completata", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, "Account creato correttamente", Toast.LENGTH_SHORT).show()
 
                     findNavController().navigate(R.id.ordiniFragment)
 
