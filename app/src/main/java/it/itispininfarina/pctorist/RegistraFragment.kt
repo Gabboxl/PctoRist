@@ -71,7 +71,7 @@ class RegistraFragment : Fragment() {
 
 
         registrabtn.setOnClickListener {
-            if (mailRegistra.text.toString().isNotEmpty() || passRegistra.text.toString()
+            if (mailRegistra.text.toString().isNotEmpty() && passRegistra.text.toString()
                     .isNotEmpty()
             ) {
                 appViewModel.viewModelScope.launch(Dispatchers.Default) {

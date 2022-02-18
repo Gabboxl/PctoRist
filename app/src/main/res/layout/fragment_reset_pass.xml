@@ -35,6 +35,22 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/textViewresetComplete"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/ic_baseline_check_24"
+        android:drawablePadding="16dp"
+        android:text="Link inviato correttamente, controlla la tua casella di posta!"
+        android:textColor="@color/teal_700"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/resetButton"
+        app:layout_constraintEnd_toEndOf="@+id/resetButton"
+        app:layout_constraintStart_toStartOf="@+id/resetButton"
+        app:layout_constraintTop_toTopOf="@+id/resetButton"
+        app:drawableTint="@color/teal_700"
+        android:visibility="invisible"/>
+
     <Button
         android:id="@+id/resetButton"
         android:layout_width="269dp"

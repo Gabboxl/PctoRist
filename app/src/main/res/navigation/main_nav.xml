@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="it.itispininfarina.pctorist.MenuFragment"
-        android:label="Duchi di Nardò"
+        android:label="Ristorante Duchi di Nardò"
         tools:layout="@layout/fragment_menu" />
     <fragment
         android:id="@+id/sessioneFragment"
@@ -47,7 +47,11 @@
             app:destination="@id/registraFragment" />
         <action
             android:id="@+id/action_loginFragment_to_resetPassFragment"
-            app:destination="@id/resetPassFragment" />
+            app:destination="@id/resetPassFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
     </fragment>
 
     <fragment
