@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.viewModelScope
+import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.firebase.firestore.ktx.firestore
@@ -50,7 +51,13 @@ class RegistraFragment : Fragment() {
 
                     Toast.makeText(context, "Account creato correttamente", Toast.LENGTH_SHORT).show()
 
-                    findNavController().navigate(R.id.ordiniFragment)
+                    
+                    val startDestination = findNavController().graph.startDestinationId
+                    val navOptions = NavOptions.Builder()
+                        .setPopUpTo(startDestination, false)
+                        .build()
+
+                    findNavController().navigate(R.id.ordiniFragment, null, navOptions)
 
 
                 } else {

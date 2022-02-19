@@ -11,6 +11,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.coroutines.flow.collectLatest
@@ -40,7 +41,12 @@ class LoginFragment : Fragment() {
 
                     Toast.makeText(context, "Login completato", Toast.LENGTH_SHORT).show()
 
-                    findNavController().navigate(R.id.ordiniFragment)
+                    //questo codice imposta come destinazione back la pagina menu dell'app visto che non ha senso tornare indietro alla apgina di login dovo aver effettuato l'accesso
+                    val startDestination = findNavController().graph.startDestinationId
+                    val navOptions = NavOptions.Builder()
+                        .setPopUpTo(startDestination, false)
+                        .build()
+                    findNavController().navigate(R.id.ordiniFragment, null, navOptions)
 
 
                 } else {
