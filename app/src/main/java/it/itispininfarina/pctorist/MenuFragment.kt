@@ -5,6 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 
 class MenuFragment : Fragment() {
@@ -17,7 +19,6 @@ class MenuFragment : Fragment() {
         // Inflate the layout for this fragment
 
         val layout = inflater.inflate(R.layout.fragment_menu, container, false)
-
 
 
         return layout

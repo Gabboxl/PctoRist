@@ -11,6 +11,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
 import kotlinx.coroutines.launch
 
 
@@ -34,6 +35,7 @@ class OrdiniFragment : Fragment(), View.OnClickListener {
         inflater.inflate(R.menu.overflow_opzioni_menu, menu)
         return super.onCreateOptionsMenu(menu, inflater)
     }
+
 
 
     override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
@@ -76,6 +78,15 @@ class OrdiniFragment : Fragment(), View.OnClickListener {
     }
 
 
+    override fun onStop() {
+        super.onStop()
+
+        val ordinefab = requireActivity().findViewById<ExtendedFloatingActionButton>(R.id.confermaOrdineFab)
+
+        ordinefab.hide()
+    }
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setHasOptionsMenu(true)
@@ -88,6 +99,10 @@ class OrdiniFragment : Fragment(), View.OnClickListener {
     ): View? {
         // Inflate the layout for this fragment
         val layout = inflater.inflate(R.layout.fragment_ordini, container, false)
+
+        val ordinefab = requireActivity().findViewById<ExtendedFloatingActionButton>(R.id.confermaOrdineFab)
+
+        ordinefab.show()
 
         //trovo i testi dentro il layout
         conto = layout.findViewById(R.id.conto)
