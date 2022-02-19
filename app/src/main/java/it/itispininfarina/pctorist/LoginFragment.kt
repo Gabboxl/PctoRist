@@ -34,7 +34,7 @@ class LoginFragment : Fragment() {
         val passDimenticataBtn = layout.findViewById<Button>(R.id.buttonNavigateResetPassword)
 
         lifecycleScope.launchWhenStarted {
-            appViewModel.getLoginResult().collectLatest { result ->
+            appViewModel.getLoginResult().collect { result ->
                 if (result.isSuccessful) {
 
 
@@ -77,6 +77,7 @@ class LoginFragment : Fragment() {
                 logBtn.visibility = View.INVISIBLE
                 creaAccountBtn.isEnabled = false
                 passDimenticataBtn.isEnabled = false
+
                 appViewModel.login(emailLog.text.toString(), passLog.text.toString())
 
             } else {

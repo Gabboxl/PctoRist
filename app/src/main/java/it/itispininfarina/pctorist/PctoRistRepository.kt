@@ -1,8 +1,6 @@
 package it.itispininfarina.pctorist
 
 import android.app.Application
-import android.content.ContentValues
-import android.util.Log
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
@@ -11,8 +9,6 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.SharedFlow
-import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.runBlocking
 
 
@@ -20,8 +16,7 @@ class PctoRistRepository(application: Application) {
     private var auth: FirebaseAuth
     private var currentUser: FirebaseUser?
     private var registraresult = MutableSharedFlow<Task<AuthResult>>()
-    private var _loginresult = MutableSharedFlow<Task<AuthResult>>()
-    private var loginresultshared = _loginresult.asSharedFlow()
+    private var loginresult = MutableSharedFlow<Task<AuthResult>>()
     private var resetresult = MutableSharedFlow<Task<Void>>()
     private var loggedoutMutableStateFlow: MutableStateFlow<Boolean>
     private var firebaseUser: MutableStateFlow<FirebaseUser?>
@@ -55,7 +50,7 @@ class PctoRistRepository(application: Application) {
         val result = auth.signInWithEmailAndPassword(email, password)
         result.addOnCompleteListener {
             runBlocking {
-                _loginresult.emit(it)
+                loginresult.emit(it)
                 //loggedoutMutableStateFlow.emit(false)
 
                 if(result.isSuccessful) {
@@ -90,8 +85,8 @@ class PctoRistRepository(application: Application) {
         return registraresult
     }
 
-    fun getLoginResult(): SharedFlow<Task<AuthResult>> {
-        return loginresultshared
+    fun getLoginResult(): MutableSharedFlow<Task<AuthResult>> {
+        return loginresult
     }
 
     fun getResetResult(): MutableSharedFlow<Task<Void>> {
