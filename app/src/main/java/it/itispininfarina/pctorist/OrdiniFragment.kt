@@ -2,11 +2,14 @@ package it.itispininfarina.pctorist
 
 import android.os.Build
 import android.os.Bundle
+import android.text.Html
 import android.view.*
 import android.widget.ImageButton
 import android.widget.ScrollView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.text.HtmlCompat
+import androidx.core.text.HtmlCompat.FROM_HTML_MODE_COMPACT
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.NavOptions
@@ -102,16 +105,15 @@ class OrdiniFragment : Fragment(), View.OnClickListener {
         val layout = inflater.inflate(R.layout.fragment_ordini, container, false)
 
         val ordinefab = requireActivity().findViewById<ExtendedFloatingActionButton>(R.id.confermaOrdineFab)
+        val scrollviewordini = layout.findViewById<ScrollView>(R.id.scrollviewOrdini)
 
         ordinefab.show()
 
         //disabilito l'overscroll per la scrollview altrimenti con lo shrink e l'extend del fab button è un casino
-        layout.findViewById<ScrollView>(R.id.scrollviewOrdini).overScrollMode = View.OVER_SCROLL_NEVER
+        scrollviewordini.overScrollMode = View.OVER_SCROLL_NEVER
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            layout.findViewById<ScrollView>(R.id.scrollviewOrdini).setOnScrollChangeListener { view, scrollX, scrollY, oldScrollX, oldScrollY ->
-
-
+            scrollviewordini.setOnScrollChangeListener { view, scrollX, scrollY, oldScrollX, oldScrollY ->
 
                 if (scrollY > oldScrollY && ordinefab.isExtended) {
                     ordinefab.shrink();
@@ -125,6 +127,23 @@ class OrdiniFragment : Fragment(), View.OnClickListener {
             }
         }
 
+        ordinefab.setOnClickListener {
+            MaterialAlertDialogBuilder(requireContext())
+                .setTitle("Confermare l'ordine?")
+                .setMessage(HtmlCompat.fromHtml("Vuoi confermare questo ordine di: <br><br><b>${quantity[0]}</b>x Pasta in bianco<br>" +
+                        "<b>${quantity[1]}</b>x  Lasagna<br>" +
+                        "<b>${quantity[2]}</b>x Pasta al pesto<br>" +
+                        "<b>${quantity[3]}</b>x Cotoletta<br>" +
+                        "<b>${quantity[4]}</b>x Bistecca<br>" +
+                        "<b>${quantity[5]}</b>x Tiramisù<br>" +
+                        "<b>${quantity[6]}</b>x Crostata ai frutti di bosco<br>" +
+                        "<br>per un costo totale di <b>$prezzo</b> Euro?", FROM_HTML_MODE_COMPACT))
+                .setNegativeButton("Annulla"){ dialog, which -> }
+                .setPositiveButton("Conferma") { dialog, which ->
+
+                }
+                .show()
+        }
 
 
 
