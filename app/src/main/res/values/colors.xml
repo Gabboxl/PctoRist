@@ -58,4 +58,7 @@
     <color name="md_theme_dark_primaryInverse">#6D23F8</color>
     <color name="seed">#6200EE</color>
     <color name="error">#BA1B1B</color>
+
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
 </resources>
