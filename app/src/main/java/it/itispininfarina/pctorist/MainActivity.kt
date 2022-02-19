@@ -42,7 +42,8 @@ class MainActivity : AppCompatActivity() {
                 R.id.inforistFragment,
                 R.id.loginFragment,
                 R.id.ordiniFragment,
-                R.id.storicoFragment //questi sono i fragment top level, non verrà visualizzata la freccia indietro nella toolbar per i fragments specificati qua
+                R.id.storicoFragment,
+                R.id.completatoOrdineFragment //questi sono i fragment top level, non verrà visualizzata la freccia indietro nella toolbar per i fragments specificati qua
             )
         )
         setupActionBarWithNavController(navController, appBarConfiguration)

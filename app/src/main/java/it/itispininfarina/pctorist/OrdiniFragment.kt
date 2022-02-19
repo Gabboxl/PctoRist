@@ -109,12 +109,7 @@ class OrdiniFragment : Fragment(), View.OnClickListener {
         lifecycleScope.launchWhenStarted {
             appViewModel.getScriviResult().collect { result ->
 
-                MaterialAlertDialogBuilder(requireContext())
-                    .setTitle("oh yeah")
-                    .setMessage("ho scritto tutto, ora puoi andare alla pagina di comferma dell'ordine")
-                    .setPositiveButton("Ok") { dialog, which ->
-                    }
-                    .show()
+                findNavController().navigate(R.id.completatoOrdineFragment)
             }
         }
 

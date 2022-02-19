@@ -67,7 +67,17 @@
         android:id="@+id/ordiniFragment"
         android:name="it.itispininfarina.pctorist.OrdiniFragment"
         android:label="Il tuo ordine"
-        tools:layout="@layout/fragment_ordini" />
+        tools:layout="@layout/fragment_ordini" >
+        <action
+            android:id="@+id/action_ordiniFragment_to_completatoOrdineFragment"
+            app:destination="@id/completatoOrdineFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/completatoOrdineFragment"
+        android:name="it.itispininfarina.pctorist.CompletatoOrdineFragment"
+        android:label="Ordine confermato"
+        tools:layout="@layout/fragment_completato_ordine" />
     <fragment
         android:id="@+id/storicoFragment"
         android:name="it.itispininfarina.pctorist.StoricoFragment"
