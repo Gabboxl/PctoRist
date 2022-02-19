@@ -1,18 +1,18 @@
 package it.itispininfarina.pctorist
 
+import android.os.Build
 import android.os.Bundle
 import android.view.*
 import android.widget.ImageButton
+import android.widget.ScrollView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-import kotlinx.coroutines.launch
 
 
 class OrdiniFragment : Fragment(), View.OnClickListener {
@@ -78,8 +78,8 @@ class OrdiniFragment : Fragment(), View.OnClickListener {
     }
 
 
-    override fun onStop() {
-        super.onStop()
+    override fun onDestroyView() {
+        super.onDestroyView()
 
         val ordinefab = requireActivity().findViewById<ExtendedFloatingActionButton>(R.id.confermaOrdineFab)
 
@@ -93,6 +93,7 @@ class OrdiniFragment : Fragment(), View.OnClickListener {
 
     }
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -103,6 +104,29 @@ class OrdiniFragment : Fragment(), View.OnClickListener {
         val ordinefab = requireActivity().findViewById<ExtendedFloatingActionButton>(R.id.confermaOrdineFab)
 
         ordinefab.show()
+
+        //disabilito l'overscroll per la scrollview altrimenti con lo shrink e l'extend del fab button è un casino
+        layout.findViewById<ScrollView>(R.id.scrollviewOrdini).overScrollMode = View.OVER_SCROLL_NEVER
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            layout.findViewById<ScrollView>(R.id.scrollviewOrdini).setOnScrollChangeListener { view, scrollX, scrollY, oldScrollX, oldScrollY ->
+
+
+
+                if (scrollY > oldScrollY && ordinefab.isExtended) {
+                    ordinefab.shrink();
+                } else if(scrollY < oldScrollY && !ordinefab.isExtended) {
+                    ordinefab.extend();
+                }
+
+                if (scrollY == 0) {
+                    ordinefab.extend();
+                }
+            }
+        }
+
+
+
 
         //trovo i testi dentro il layout
         conto = layout.findViewById(R.id.conto)
