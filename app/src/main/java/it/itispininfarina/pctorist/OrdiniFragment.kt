@@ -13,6 +13,7 @@ import androidx.core.text.HtmlCompat.FROM_HTML_MODE_COMPACT
 import androidx.core.widget.NestedScrollView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
@@ -102,6 +103,40 @@ class OrdiniFragment : Fragment(), View.OnClickListener {
         // Inflate the layout for this fragment
         val layout = inflater.inflate(R.layout.fragment_ordini, container, false)
 
+
+
+
+        lifecycleScope.launchWhenStarted {
+            appViewModel.getScriviResult().collect { result ->
+
+                MaterialAlertDialogBuilder(requireContext())
+                    .setTitle("oh yeah")
+                    .setMessage("ho scritto tutto, ora puoi andare alla pagina di comferma dell'ordine")
+                    .setPositiveButton("Ok") { dialog, which ->
+                    }
+                    .show()
+            }
+        }
+
+
+        lifecycleScope.launchWhenStarted {
+            appViewModel.getScriviException().collect { result ->
+
+                    MaterialAlertDialogBuilder(requireContext())
+                        .setTitle("Errore")
+                        .setMessage(result.localizedMessage)
+                        .setPositiveButton("Ok") { dialog, which ->
+                        }
+                        .show()
+                }
+            }
+
+
+
+
+
+
+
         val ordinefab = layout.findViewById<ExtendedFloatingActionButton>(R.id.confermaOrdineFab)
         val scrollviewordini = layout.findViewById<NestedScrollView>(R.id.scrollviewOrdini)
 
@@ -144,7 +179,7 @@ class OrdiniFragment : Fragment(), View.OnClickListener {
                     )
                     .setNegativeButton("Annulla") { dialog, which -> }
                     .setPositiveButton("Conferma") { dialog, which ->
-
+                        appViewModel.creaOrdine(quantity[0], quantity[1], quantity[2], quantity[3], quantity[4], quantity[5], quantity[6])
                     }
                     .setCancelable(false)
                     .show()

@@ -97,60 +97,6 @@ class RegistraFragment : Fragment() {
         }
 
 
-        //inizializzo il database
-        val db = Firebase.firestore
-
-        /*  scrivibtn.setOnClickListener {
-              // Create a new user with a first and last name
-              val usernuov = hashMapOf(
-                  "first" to "Ada",
-                  "last" to "Lovelace",
-                  "born" to 1815
-              )
-
-              //aggiungo un nuovo documento di test al database
-              db.collection("users")
-                  .add(usernuov)
-                  .addOnSuccessListener { documentReference ->
-                      Toast.makeText(
-                          requireContext(),
-                          "DocumentSnapshot added with ID: ${documentReference.id}", //lesgoo
-                          Toast.LENGTH_LONG
-                      ).show()
-                  }
-                  .addOnFailureListener { e ->
-                      Toast.makeText(requireContext(), "Errore aggiunta doc $e", Toast.LENGTH_LONG)
-                          .show()
-                  }
-
-          }
-
-
-          leggibtn.setOnClickListener {
-              //leggo dati
-
-
-              db.collection("users")
-                  .get()
-                  .addOnSuccessListener { result ->
-                      val doc: DocumentSnapshot = result.documents[0] //prendo solo il primo documento
-                      //     for (document in result) { //faccio qualcosa per tutti i documenti
-                      Toast.makeText(
-                          requireContext(),
-                          "${doc.id} => ${doc.data}",
-                          Toast.LENGTH_LONG
-                      ).show()
-
-                      //   }
-                  }
-                  .addOnFailureListener { exception ->
-                      Toast.makeText(
-                          requireContext(),
-                          "Errore prendendo docs $exception",
-                          Toast.LENGTH_LONG
-                      ).show()
-                  }
-          }*/
 
         return layout
     }

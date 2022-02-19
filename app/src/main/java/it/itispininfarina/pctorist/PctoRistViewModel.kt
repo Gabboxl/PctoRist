@@ -6,9 +6,9 @@ import androidx.lifecycle.viewModelScope
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.firestore.DocumentReference
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.launch
 import javax.annotation.Nonnull
 
@@ -18,6 +18,8 @@ class PctoRistViewModel(@Nonnull application: Application) : AndroidViewModel(ap
     private var loginresultshared: MutableSharedFlow<Task<AuthResult>>
     private var resetresult: MutableSharedFlow<Task<Void>>
     private var firebaseUser: MutableStateFlow<FirebaseUser?>
+    private var scriviresult: MutableSharedFlow<Task<Void>>
+    private val scriviexception: MutableSharedFlow<Exception>
 
     init {
         repository = PctoRistRepository(application)
@@ -25,6 +27,8 @@ class PctoRistViewModel(@Nonnull application: Application) : AndroidViewModel(ap
         registraResult = repository.getRegistraResult()
         loginresultshared = repository.getLoginResult()
         resetresult = repository.getResetResult()
+        scriviresult = repository.getScriviResult()
+        scriviexception = repository.getScriviException()
     }
 
     fun registra(email: String, password: String) {
@@ -39,16 +43,38 @@ class PctoRistViewModel(@Nonnull application: Application) : AndroidViewModel(ap
         }
     }
 
+    fun creaOrdine(
+        prod1: Int,
+        prod2: Int,
+        prod3: Int,
+        prod4: Int,
+        prod5: Int,
+        prod6: Int,
+        prod7: Int
+    ) {
+        viewModelScope.launch {
+            repository.creaOrdine(prod1, prod2, prod3, prod4, prod5, prod6, prod7)
+        }
+    }
+
     fun logout() {
         viewModelScope.launch {
             repository.logout()
         }
     }
 
-    fun resetPassword(email: String){
+    fun resetPassword(email: String) {
         viewModelScope.launch {
             repository.resetPassword(email)
         }
+    }
+
+    fun getScriviResult(): MutableSharedFlow<Task<Void>> {
+        return scriviresult
+    }
+
+    fun getScriviException(): MutableSharedFlow<Exception> {
+        return scriviexception
     }
 
     fun getRegistraResult(): MutableSharedFlow<Task<AuthResult>> {
@@ -66,7 +92,6 @@ class PctoRistViewModel(@Nonnull application: Application) : AndroidViewModel(ap
     fun getResetResult(): MutableSharedFlow<Task<Void>> {
         return resetresult
     }
-
 
 
 }
