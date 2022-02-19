@@ -221,43 +221,43 @@ class OrdiniFragment : Fragment(), View.OnClickListener {
         when (parent.id) {
             R.id.addB1 -> {
                 quantity[0]++
-                quanPB.text = "" + quantity[0]
+                quanPB.text = quantity[0].toString()
                 prezzo += prezzoUnitario[0]
                 conto.text = "$prezzo"
             }
             R.id.addB2 -> {
                 quantity[1]++
-                quanLas.text = "" + quantity[1]
+                quanLas.text = quantity[1].toString()
                 prezzo += prezzoUnitario[1]
                 conto.text = "$prezzo"
             }
             R.id.addB3 -> {
                 quantity[2]++
-                quanPP.text = "" + quantity[2]
+                quanPP.text = quantity[2].toString()
                 prezzo += prezzoUnitario[2]
                 conto.text = "$prezzo"
             }
             R.id.addB4 -> {
                 quantity[3]++
-                quanCot.text = "" + quantity[3]
+                quanCot.text = quantity[3].toString()
                 prezzo += prezzoUnitario[3]
                 conto.text = "$prezzo"
             }
             R.id.addB5 -> {
                 quantity[4]++
-                quanBistec.text = "" + quantity[4]
+                quanBistec.text = quantity[4].toString()
                 prezzo += prezzoUnitario[4]
                 conto.text = "$prezzo"
             }
             R.id.addB6 -> {
                 quantity[5]++
-                quanTiramisu.text = "" + quantity[5]
+                quanTiramisu.text = quantity[5].toString()
                 prezzo += prezzoUnitario[5]
                 conto.text = "$prezzo"
             }
             R.id.addB7 -> {
                 quantity[6]++
-                quanCrostata.text = "" + quantity[6]
+                quanCrostata.text = quantity[6].toString()
                 prezzo += prezzoUnitario[6]
                 conto.text = "$prezzo"
             }
@@ -269,7 +269,7 @@ class OrdiniFragment : Fragment(), View.OnClickListener {
                 } else {
                     quantity[0] = 0
                 }
-                quanPB.text = "" + quantity[0]
+                quanPB.text = quantity[0].toString()
             }
             R.id.removeB2 -> {
                 if (quantity[1] > 0) {
@@ -279,7 +279,7 @@ class OrdiniFragment : Fragment(), View.OnClickListener {
                 } else {
                     quantity[1] = 0
                 }
-                quanLas.text = "" + quantity[1]
+                quanLas.text = quantity[1].toString()
             }
             R.id.removeB3 -> {
                 if (quantity[2] > 0) {
@@ -289,7 +289,7 @@ class OrdiniFragment : Fragment(), View.OnClickListener {
                 } else {
                     quantity[2] = 0
                 }
-                quanPP.text = "" + quantity[2]
+                quanPP.text = quantity[2].toString()
             }
             R.id.removeB4 -> {
                 if (quantity[3] > 0) {
@@ -299,7 +299,7 @@ class OrdiniFragment : Fragment(), View.OnClickListener {
                 } else {
                     quantity[3] = 0
                 }
-                quanCot.text = "" + quantity[3]
+                quanCot.text = quantity[3].toString()
             }
             R.id.removeB5 -> {
                 if (quantity[4] > 0) {
@@ -309,7 +309,7 @@ class OrdiniFragment : Fragment(), View.OnClickListener {
                 } else {
                     quantity[3] = 0
                 }
-                quanBistec.text = "" + quantity[4]
+                quanBistec.text = quantity[4].toString()
             }
             R.id.removeB6 -> {
                 if (quantity[5] > 0) {
@@ -319,7 +319,7 @@ class OrdiniFragment : Fragment(), View.OnClickListener {
                 } else {
                     quantity[5] = 0
                 }
-                quanTiramisu.text = "" + quantity[5]
+                quanTiramisu.text = quantity[5].toString()
             }
             R.id.removeB7 -> {
                 if (quantity[6] > 0) {
@@ -329,7 +329,7 @@ class OrdiniFragment : Fragment(), View.OnClickListener {
                 } else {
                     quantity[6] = 0
                 }
-                quanCrostata.text = "" + quantity[6]
+                quanCrostata.text = quantity[6].toString()
             }
 
         }
