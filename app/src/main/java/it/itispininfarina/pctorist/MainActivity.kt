@@ -25,8 +25,6 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        //nascondo il fab per l'ordine
-        binding.confermaOrdineFab.hide()
 
         appViewModel = ViewModelProvider(this).get(PctoRistViewModel::class.java)
 
