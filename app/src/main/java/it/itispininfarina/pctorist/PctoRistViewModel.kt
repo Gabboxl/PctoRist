@@ -14,7 +14,6 @@ import javax.annotation.Nonnull
 
 class PctoRistViewModel(@Nonnull application: Application) : AndroidViewModel(application) {
     private var repository: PctoRistRepository = PctoRistRepository(application)
-    private var loggedoutMutableLiveData: MutableStateFlow<Boolean>
     private var registraResult: MutableSharedFlow<Task<AuthResult>>
     private var loginresultshared: MutableSharedFlow<Task<AuthResult>>
     private var resetresult: MutableSharedFlow<Task<Void>>
@@ -26,7 +25,6 @@ class PctoRistViewModel(@Nonnull application: Application) : AndroidViewModel(ap
         registraResult = repository.getRegistraResult()
         loginresultshared = repository.getLoginResult()
         resetresult = repository.getResetResult()
-        loggedoutMutableLiveData = repository.getloggedoutMutableLiveData()
     }
 
     suspend fun registra(email: String, password: String) {
@@ -63,9 +61,6 @@ class PctoRistViewModel(@Nonnull application: Application) : AndroidViewModel(ap
         return resetresult
     }
 
-    fun getloggedoutMutableLiveData(): MutableStateFlow<Boolean> {
-        return loggedoutMutableLiveData
-    }
 
     fun logout() {
         viewModelScope.launch {

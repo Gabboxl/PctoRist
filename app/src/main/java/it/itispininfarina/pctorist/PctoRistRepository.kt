@@ -18,7 +18,6 @@ class PctoRistRepository(application: Application) {
     private var registraresult = MutableSharedFlow<Task<AuthResult>>()
     private var loginresult = MutableSharedFlow<Task<AuthResult>>()
     private var resetresult = MutableSharedFlow<Task<Void>>()
-    private var loggedoutMutableStateFlow: MutableStateFlow<Boolean>
     private var firebaseUser: MutableStateFlow<FirebaseUser?>
 
 
@@ -26,7 +25,6 @@ class PctoRistRepository(application: Application) {
 
         auth = Firebase.auth
         currentUser = auth.currentUser
-        loggedoutMutableStateFlow = MutableStateFlow(true)
         firebaseUser = MutableStateFlow(auth.currentUser)
 
         //    loginresult = MutableSharedFlow<Task<AuthResult>?>().asSharedFlow()
@@ -51,7 +49,6 @@ class PctoRistRepository(application: Application) {
         result.addOnCompleteListener {
             runBlocking {
                 loginresult.emit(it)
-                //loggedoutMutableStateFlow.emit(false)
 
                 if(result.isSuccessful) {
                     firebaseUser.emit(it.result?.user)
@@ -91,10 +88,6 @@ class PctoRistRepository(application: Application) {
 
     fun getResetResult(): MutableSharedFlow<Task<Void>> {
         return resetresult
-    }
-
-    fun getloggedoutMutableLiveData(): MutableStateFlow<Boolean> {
-        return loggedoutMutableStateFlow
     }
 
 
