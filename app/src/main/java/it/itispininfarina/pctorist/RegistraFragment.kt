@@ -51,7 +51,7 @@ class RegistraFragment : Fragment() {
 
                     Toast.makeText(context, "Account creato correttamente", Toast.LENGTH_SHORT).show()
 
-                    
+
                     val startDestination = findNavController().graph.startDestinationId
                     val navOptions = NavOptions.Builder()
                         .setPopUpTo(startDestination, false)

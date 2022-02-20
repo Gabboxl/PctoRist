@@ -109,7 +109,13 @@ class OrdiniFragment : Fragment(), View.OnClickListener {
         lifecycleScope.launchWhenStarted {
             appViewModel.getScriviResult().collect { result ->
 
-                findNavController().navigate(R.id.completatoOrdineFragment)
+                val startDestination = findNavController().graph.startDestinationId
+                val navOptions = NavOptions.Builder()
+                    .setPopUpTo(startDestination, false)
+                    .build()
+
+
+                findNavController().navigate(R.id.completatoOrdineFragment, null, navOptions)
             }
         }
 
