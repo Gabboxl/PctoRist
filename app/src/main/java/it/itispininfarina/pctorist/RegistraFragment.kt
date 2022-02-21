@@ -14,9 +14,8 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.viewModelScope
 import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -49,7 +48,8 @@ class RegistraFragment : Fragment() {
                 if (result.isSuccessful) {
 
 
-                    Toast.makeText(context, "Account creato correttamente", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, "Account creato correttamente", Toast.LENGTH_SHORT)
+                        .show()
 
 
                     val startDestination = findNavController().graph.startDestinationId
@@ -57,7 +57,11 @@ class RegistraFragment : Fragment() {
                         .setPopUpTo(startDestination, false)
                         .build()
 
-                    findNavController().navigate(R.id.ordiniFragment, null, navOptions)
+                    if (requireActivity().findViewById<BottomNavigationView>(R.id.bottom_nav_view).selectedItemId == R.id.storicoFragment) {//se provengo dal frammento dello storico reinderizzero tutto di nuovo li
+                        findNavController().navigate(R.id.storicoFragment, null, navOptions)
+                    } else {
+                        findNavController().navigate(R.id.ordiniFragment, null, navOptions)
+                    }
 
 
                 } else {

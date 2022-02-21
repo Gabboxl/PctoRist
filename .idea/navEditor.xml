@@ -8,6 +8,18 @@
             <LayoutPositions>
               <option name="myPositions">
                 <map>
+                  <entry key="SstoricoFragment">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="12" />
+                            <option name="y" value="12" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
                   <entry key="completatoOrdineFragment">
                     <value>
                       <LayoutPositions>
@@ -37,8 +49,8 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="-234" />
-                            <option name="y" value="754" />
+                            <option name="x" value="-218" />
+                            <option name="y" value="1312" />
                           </Point>
                         </option>
                       </LayoutPositions>
@@ -70,6 +82,11 @@
                                 <LayoutPositions />
                               </value>
                             </entry>
+                            <entry key="action_loginFragment_to_storicoFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
                           </map>
                         </option>
                       </LayoutPositions>
@@ -80,8 +97,8 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="590" />
-                            <option name="y" value="570" />
+                            <option name="x" value="632" />
+                            <option name="y" value="530" />
                           </Point>
                         </option>
                         <option name="myPositions">
@@ -112,6 +129,11 @@
                                 <LayoutPositions />
                               </value>
                             </entry>
+                            <entry key="action_registraFragment_to_storicoFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
                           </map>
                         </option>
                       </LayoutPositions>
@@ -134,8 +156,8 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="-254" />
-                            <option name="y" value="407" />
+                            <option name="x" value="-378" />
+                            <option name="y" value="545" />
                           </Point>
                         </option>
                         <option name="myPositions">
@@ -160,8 +182,8 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="-228" />
-                            <option name="y" value="1088" />
+                            <option name="x" value="485" />
+                            <option name="y" value="973" />
                           </Point>
                         </option>
                       </LayoutPositions>

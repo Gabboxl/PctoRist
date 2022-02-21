@@ -52,6 +52,9 @@
             app:exitAnim="@anim/nav_default_exit_anim"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
             app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        <action
+            android:id="@+id/action_loginFragment_to_storicoFragment"
+            app:destination="@id/storicoFragment" />
     </fragment>
 
     <fragment
@@ -62,6 +65,9 @@
         <action
             android:id="@+id/action_registraFragment_to_ordinitestFragment"
             app:destination="@id/ordiniFragment" />
+        <action
+            android:id="@+id/action_registraFragment_to_storicoFragment"
+            app:destination="@id/storicoFragment" />
     </fragment>
     <fragment
         android:id="@+id/ordiniFragment"
@@ -81,6 +87,11 @@
     <fragment
         android:id="@+id/storicoFragment"
         android:name="it.itispininfarina.pctorist.StoricoFragment"
-        android:label="Ordini effettuati"
+        android:label="Storico ordini"
         tools:layout="@layout/fragment_storico" />
+
+    <fragment
+        android:id="@+id/SessioneStoricoFragment"
+        android:name="it.itispininfarina.pctorist.SessionStoricoFragment"
+        android:label="Caricamento..." />
 </navigation>

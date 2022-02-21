@@ -9,8 +9,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 
-
-class SessioneFragment : Fragment() {
+class SessionStoricoFragment : Fragment() {
     private val appViewModel: PctoRistViewModel by activityViewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,26 +25,24 @@ class SessioneFragment : Fragment() {
             val navOptions = NavOptions.Builder()
                 .setPopUpTo(startDestination, false)
                 .build()
-            findNavController().navigate(R.id.ordiniFragment, null, navOptions)
 
-            //Toast.makeText(context, "Hey sei già loggato + ", Toast.LENGTH_SHORT).show()
+            findNavController().navigate(R.id.storicoFragment, null, navOptions)
+
+
         } else {
             val startDestination = findNavController().graph.startDestinationId
             val navOptions = NavOptions.Builder()
                 .setPopUpTo(startDestination, false)
                 .build()
             findNavController().navigate(R.id.loginFragment, null, navOptions)
-            //Toast.makeText(context, "heu non sei loggcatowttff + " + appViewModel.getFirebaseUser().value + Firebase.auth.currentUser, Toast.LENGTH_SHORT).show()
         }
     }
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-
         return null
     }
 
