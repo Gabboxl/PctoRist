@@ -11,7 +11,7 @@
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginRight="16dp"
-        android:text="Una volta creato l'account, verrai automaticamente loggato e potrai effettuare un ordine."
+        android:text="Una volta creato l'account, verrai automaticamente loggato e potrai effettuare un ordine o visionare lo storico degli ordini."
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

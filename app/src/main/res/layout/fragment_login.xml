@@ -87,7 +87,7 @@
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginRight="16dp"
-        android:text="Per effettuare un ordine devi prima accedere!"
+        android:text="Per effettuare un ordine o vedere lo storico degli ordini devi prima accedere!"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
