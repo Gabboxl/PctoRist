@@ -57,7 +57,7 @@ class RegistraFragment : Fragment() {
                         .setPopUpTo(startDestination, false)
                         .build()
 
-                    if (requireActivity().findViewById<BottomNavigationView>(R.id.bottom_nav_view).selectedItemId == R.id.storicoFragment) {//se provengo dal frammento dello storico reinderizzero tutto di nuovo li
+                    if (requireActivity().findViewById<BottomNavigationView>(R.id.bottom_nav_view).selectedItemId == R.id.sessioneStoricoFragment) {//se provengo dal frammento dello storico reinderizzero tutto di nuovo li
                         findNavController().navigate(R.id.storicoFragment, null, navOptions)
                     } else {
                         findNavController().navigate(R.id.ordiniFragment, null, navOptions)
