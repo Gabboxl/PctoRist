@@ -91,7 +91,7 @@
         tools:layout="@layout/fragment_storico" />
 
     <fragment
-        android:id="@+id/SessioneStoricoFragment"
+        android:id="@+id/sessioneStoricoFragment"
         android:name="it.itispininfarina.pctorist.SessionStoricoFragment"
         android:label="Caricamento..." />
 </navigation>

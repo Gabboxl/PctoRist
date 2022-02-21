@@ -14,7 +14,7 @@
         android:icon="@drawable/ic_baseline_info_24"
         android:title="Info ristorante" />
     <item
-        android:id="@+id/SessioneStoricoFragment"
+        android:id="@+id/sessioneStoricoFragment"
         android:icon="@drawable/ic_baseline_history_24"
         android:title="Storico ordini" />
 </menu>
