@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardxd"
+    style="?attr/materialCardViewElevatedStyle"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="8dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginEnd="8dp"
+    android:checkable="true"
+    android:clickable="true"
+    android:focusable="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <ImageButton
+            android:id="@+id/cardoptionbutton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:layout_marginTop="8dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Pulsante opzioni card"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
+            android:src="@drawable/ic_baseline_more_vert_24"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+        </ImageButton>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/linlay1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <TextView
+                app:layout_constraintTop_toTopOf="@id/linlay1"
+                app:layout_constraintStart_toStartOf="@id/linlay1"
+                android:id="@+id/titolo_nordine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ordine #"
+                android:textAppearance="?attr/textAppearanceTitleLarge"
+                android:textSize="18sp" />
+
+            <TextView
+                app:layout_constraintTop_toTopOf="@id/linlay1"
+                app:layout_constraintStart_toEndOf="@id/titolo_nordine"
+                android:id="@+id/nordinecard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="N"
+                android:textAppearance="?attr/textAppearanceTitleLarge"
+                android:textSize="18sp" />
+
+            <TextView
+                app:layout_constraintTop_toBottomOf="@id/titolo_nordine"
+                app:layout_constraintStart_toStartOf="@id/linlay1"
+                android:id="@+id/qtordineProd1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="roba1"
+                android:textAppearance="?attr/textAppearanceBodyMedium"
+                android:textColor="?android:attr/textColorSecondary" />
+
+
+            <TextView
+                app:layout_constraintTop_toBottomOf="@id/qtordineProd1"
+                app:layout_constraintStart_toStartOf="@id/linlay1"
+                android:id="@+id/qtordineProd2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="roba2"
+                android:textAppearance="?attr/textAppearanceBodyMedium"
+                android:textColor="?android:attr/textColorSecondary" />
+
+
+            <TextView
+                app:layout_constraintTop_toBottomOf="@id/qtordineProd2"
+                app:layout_constraintStart_toStartOf="@id/linlay1"
+                android:id="@+id/qtordineProd3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="roba3"
+                android:textAppearance="?attr/textAppearanceBodyMedium"
+                android:textColor="?android:attr/textColorSecondary" />
+
+
+            <TextView
+                app:layout_constraintTop_toBottomOf="@id/qtordineProd3"
+                app:layout_constraintStart_toStartOf="@id/linlay1"
+                android:id="@+id/qtordineProd4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="roba4"
+                android:textAppearance="?attr/textAppearanceBodyMedium"
+                android:textColor="?android:attr/textColorSecondary" />
+
+
+            <TextView
+                app:layout_constraintTop_toBottomOf="@id/qtordineProd4"
+                app:layout_constraintStart_toStartOf="@id/linlay1"
+                android:id="@+id/qtordineProd5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="roba5"
+                android:textAppearance="?attr/textAppearanceBodyMedium"
+                android:textColor="?android:attr/textColorSecondary" />
+
+
+            <TextView
+                app:layout_constraintTop_toBottomOf="@id/qtordineProd5"
+                app:layout_constraintStart_toStartOf="@id/linlay1"
+                android:id="@+id/qtordineProd6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="roba6"
+                android:textAppearance="?attr/textAppearanceBodyMedium"
+                android:textColor="?android:attr/textColorSecondary" />
+
+            <TextView
+                app:layout_constraintTop_toBottomOf="@id/qtordineProd6"
+                app:layout_constraintStart_toStartOf="@id/linlay1"
+                android:id="@+id/qtordineProd7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="roba7"
+                android:textAppearance="?attr/textAppearanceBodyMedium"
+                android:textColor="?android:attr/textColorSecondary" />
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</com.google.android.material.card.MaterialCardView>

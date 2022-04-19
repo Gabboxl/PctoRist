@@ -1,13 +1,21 @@
 package it.itispininfarina.pctorist
 
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.*
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
+import kotlinx.coroutines.flow.collect
 
 class StoricoFragment : Fragment() {
     private val appViewModel: PctoRistViewModel by activityViewModels()
@@ -72,6 +80,31 @@ class StoricoFragment : Fragment() {
         // Inflate the layout for this fragment
         val layout = inflater.inflate(R.layout.fragment_storico, container, false)
 
+
+        val recyclerView: RecyclerView = layout.findViewById(R.id.recycler_view)
+        recyclerView.layoutManager = LinearLayoutManager(context)
+        recyclerView.setHasFixedSize(true)
+
+        val adapterOrdini = OrdiniAdapter()
+        recyclerView.adapter = adapterOrdini
+
+
+
+        val db = Firebase.firestore
+        val pathordini = db.collection("users").document(appViewModel.getFirebaseUser().value!!.email!!).collection("ordini")
+            .orderBy("nordine", Query.Direction.DESCENDING) //così visualizzo l'ultimo ordine effettuato in cima alla lista
+            .addSnapshotListener(object :  EventListener<QuerySnapshot> {
+                override fun onEvent(snapshot: QuerySnapshot?,
+                    error: FirebaseFirestoreException?) {
+
+                    if (error != null) {
+                        Log.e("Firestore error", error.message.toString())
+                        return;
+                    }
+
+                    adapterOrdini.submitList(snapshot!!.documents)
+                }
+            });
 
 
 

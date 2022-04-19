@@ -114,7 +114,6 @@ class PctoRistRepository(application: Application) {
                      "nordini" to nordinenuovo
                  )
                  db.collection("users").document(auth.currentUser!!.email!!).set(dati)
-
              }
 
 
