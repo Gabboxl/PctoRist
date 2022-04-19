@@ -3,6 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Gabriele/GitHub/PctoRist/app/src/main/res/drawable/ic_baseline_auto_awesome_24.xml" value="0.127" />
+        <entry key="..\:/Users/Gabriele/GitHub/PctoRist/app/src/main/res/drawable/ic_baseline_headset_mic_24.xml" value="0.127" />
+        <entry key="..\:/Users/Gabriele/GitHub/PctoRist/app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.127" />
+        <entry key="..\:/Users/Gabriele/GitHub/PctoRist/app/src/main/res/drawable/ic_baseline_settings_input_component_24.xml" value="0.127" />
         <entry key="..\:/Users/Gabriele/GitHub/PctoRist/app/src/main/res/layout/activity_main.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/Gabriele/GitHub/PctoRist/app/src/main/res/layout/fragment_completato_ordine.xml" value="0.2" />
         <entry key="..\:/Users/Gabriele/GitHub/PctoRist/app/src/main/res/layout/fragment_info.xml" value="0.22826086956521738" />
