@@ -2,7 +2,7 @@
 2° progetto di pcto 2022 4A INF
 
 ### Cosa fa questa app
-- Questa app permette di effettuare di selezionare il numero di prodotti da un menu di un ristorante, effettuare un ordine e visualizzare lo storico degli ordini effettuati.
+- Questa app permette di selezionare il numero di prodotti da un menu di un ristorante, effettuare un ordine e visualizzare lo storico degli ordini effettuati.
 
 - Prima di effettuare un ordine è richiesta la registrazione di un account per poter associare ad esso gli ordini effettuati.
 
