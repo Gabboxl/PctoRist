@@ -18,7 +18,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:drawableLeft="@drawable/ic_baseline_check_24"
+        android:drawableStart="@drawable/ic_baseline_check_24"
         android:drawablePadding="16dp"
         app:drawableTint="@color/teal_700"
         android:textColor="@color/teal_700"/>

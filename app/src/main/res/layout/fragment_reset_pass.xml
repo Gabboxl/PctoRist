@@ -39,7 +39,7 @@
         android:id="@+id/textViewresetComplete"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:drawableLeft="@drawable/ic_baseline_check_24"
+        android:drawableStart="@drawable/ic_baseline_check_24"
         android:drawablePadding="16dp"
         android:text="Link inviato correttamente, controlla la tua casella di posta!"
         android:textColor="@color/teal_700"
