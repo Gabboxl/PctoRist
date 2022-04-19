@@ -2,10 +2,8 @@ package it.itispininfarina.pctorist
 
 import android.os.Build
 import android.os.Bundle
-import android.text.Html
 import android.view.*
 import android.widget.ImageButton
-import android.widget.ScrollView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.text.HtmlCompat
@@ -23,17 +21,17 @@ import com.google.android.material.floatingactionbutton.ExtendedFloatingActionBu
 class OrdiniFragment : Fragment(), View.OnClickListener {
     private val appViewModel: PctoRistViewModel by activityViewModels()
 
-    lateinit var conto: TextView
-    lateinit var quanPB: TextView
-    lateinit var quanLas: TextView
-    lateinit var quanPP: TextView
-    lateinit var quanCot: TextView
-    lateinit var quanBistec: TextView
-    lateinit var quanTiramisu: TextView
-    lateinit var quanCrostata: TextView
-    var prezzo = 0.0
-    var prezzoUnitario = arrayOf(6.0, 10.0, 8.0, 12.0, 20.0, 6.5, 6.0)
-    var quantity = arrayOf(0, 0, 0, 0, 0, 0, 0)
+    private lateinit var conto: TextView
+    private lateinit var quanPB: TextView
+    private lateinit var quanLas: TextView
+    private lateinit var quanPP: TextView
+    private lateinit var quanCot: TextView
+    private lateinit var quanBistec: TextView
+    private lateinit var quanTiramisu: TextView
+    private lateinit var quanCrostata: TextView
+    private var prezzo = 0.0
+    private var prezzoUnitario = arrayOf(6.0, 10.0, 8.0, 12.0, 20.0, 6.5, 6.0)
+    private var quantity = arrayOf(0, 0, 0, 0, 0, 0, 0)
 
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -150,13 +148,13 @@ class OrdiniFragment : Fragment(), View.OnClickListener {
             scrollviewordini.setOnScrollChangeListener { view, scrollX, scrollY, oldScrollX, oldScrollY ->
 
                 if (scrollY > oldScrollY && ordinefab.isExtended) {
-                    ordinefab.shrink();
+                    ordinefab.shrink()
                 } else if(scrollY < oldScrollY && !ordinefab.isExtended) {
-                    ordinefab.extend();
+                    ordinefab.extend()
                 }
 
                 if (scrollY == 0) {
-                    ordinefab.extend();
+                    ordinefab.extend()
                 }
             }
         }
@@ -198,13 +196,13 @@ class OrdiniFragment : Fragment(), View.OnClickListener {
 
         //trovo i testi dentro il layout
         conto = layout.findViewById(R.id.conto)
-        quanPB = layout.findViewById<TextView>(R.id.quanPastaBianco)
-        quanLas = layout.findViewById<TextView>(R.id.quanLasagna)
-        quanPP = layout.findViewById<TextView>(R.id.quanPastaPesto)
-        quanCot = layout.findViewById<TextView>(R.id.quanCotoletta)
-        quanBistec = layout.findViewById<TextView>(R.id.quanBistecca)
-        quanTiramisu = layout.findViewById<TextView>(R.id.quanTiramisu)
-        quanCrostata = layout.findViewById<TextView>(R.id.quanCrostata)
+        quanPB = layout.findViewById(R.id.quanPastaBianco)
+        quanLas = layout.findViewById(R.id.quanLasagna)
+        quanPP = layout.findViewById(R.id.quanPastaPesto)
+        quanCot = layout.findViewById(R.id.quanCotoletta)
+        quanBistec = layout.findViewById(R.id.quanBistecca)
+        quanTiramisu = layout.findViewById(R.id.quanTiramisu)
+        quanCrostata = layout.findViewById(R.id.quanCrostata)
 
         //trovo i pulsanti dentro il layout
         val addB1 = layout.findViewById<ImageButton>(R.id.addB1)

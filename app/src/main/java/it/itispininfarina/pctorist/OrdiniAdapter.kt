@@ -13,7 +13,6 @@ import com.google.firebase.firestore.DocumentSnapshot
 
 class OrdiniAdapter :
     ListAdapter<DocumentSnapshot, OrdiniAdapter.OrdineHolder>(DIFF_CALLBACK) {
-    var posizioneitem: Int = -1
 
     companion object {
 

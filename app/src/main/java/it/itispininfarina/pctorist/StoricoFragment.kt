@@ -11,11 +11,12 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.firestore.*
+import com.google.firebase.firestore.EventListener
+import com.google.firebase.firestore.FirebaseFirestoreException
+import com.google.firebase.firestore.Query
+import com.google.firebase.firestore.QuerySnapshot
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
-import kotlinx.coroutines.flow.collect
 
 class StoricoFragment : Fragment() {
     private val appViewModel: PctoRistViewModel by activityViewModels()
@@ -99,12 +100,12 @@ class StoricoFragment : Fragment() {
 
                     if (error != null) {
                         Log.e("Firestore error", error.message.toString())
-                        return;
+                        return
                     }
 
                     adapterOrdini.submitList(snapshot!!.documents)
                 }
-            });
+            })
 
 
 
