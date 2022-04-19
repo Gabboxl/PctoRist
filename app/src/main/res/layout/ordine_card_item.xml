@@ -44,112 +44,198 @@
             android:padding="16dp"
 
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
 
             <TextView
-                app:layout_constraintTop_toTopOf="@id/linlay1"
-                app:layout_constraintStart_toStartOf="@id/linlay1"
                 android:id="@+id/titolo_nordine"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Ordine #"
                 android:textAppearance="?attr/textAppearanceTitleLarge"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@id/linlay1"
+                app:layout_constraintTop_toTopOf="@id/linlay1" />
 
             <TextView
-                app:layout_constraintTop_toTopOf="@id/linlay1"
-                app:layout_constraintStart_toEndOf="@id/titolo_nordine"
                 android:id="@+id/nordinecard"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="N"
                 android:textAppearance="?attr/textAppearanceTitleLarge"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@id/titolo_nordine"
+                app:layout_constraintTop_toTopOf="@id/linlay1" />
 
             <TextView
-                app:layout_constraintTop_toBottomOf="@id/titolo_nordine"
-                app:layout_constraintStart_toStartOf="@id/linlay1"
                 android:id="@+id/qtordineProd1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="roba1"
                 android:textAppearance="?attr/textAppearanceBodyMedium"
-                android:textColor="?android:attr/textColorSecondary" />
+                android:textColor="?android:attr/textColorSecondary"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@id/linlay1"
+                app:layout_constraintTop_toBottomOf="@id/titolo_nordine" />
 
 
             <TextView
-                app:layout_constraintTop_toBottomOf="@id/qtordineProd1"
-                app:layout_constraintStart_toStartOf="@id/linlay1"
                 android:id="@+id/qtordineProd2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="roba2"
                 android:textAppearance="?attr/textAppearanceBodyMedium"
-                android:textColor="?android:attr/textColorSecondary" />
+                android:textColor="?android:attr/textColorSecondary"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@id/linlay1"
+                app:layout_constraintTop_toBottomOf="@id/qtordineProd1" />
 
 
             <TextView
-                app:layout_constraintTop_toBottomOf="@id/qtordineProd2"
-                app:layout_constraintStart_toStartOf="@id/linlay1"
                 android:id="@+id/qtordineProd3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="roba3"
                 android:textAppearance="?attr/textAppearanceBodyMedium"
-                android:textColor="?android:attr/textColorSecondary" />
+                android:textColor="?android:attr/textColorSecondary"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@id/linlay1"
+                app:layout_constraintTop_toBottomOf="@id/qtordineProd2" />
 
 
             <TextView
-                app:layout_constraintTop_toBottomOf="@id/qtordineProd3"
-                app:layout_constraintStart_toStartOf="@id/linlay1"
                 android:id="@+id/qtordineProd4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="roba4"
                 android:textAppearance="?attr/textAppearanceBodyMedium"
-                android:textColor="?android:attr/textColorSecondary" />
+                android:textColor="?android:attr/textColorSecondary"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@id/linlay1"
+                app:layout_constraintTop_toBottomOf="@id/qtordineProd3" />
 
 
             <TextView
-                app:layout_constraintTop_toBottomOf="@id/qtordineProd4"
-                app:layout_constraintStart_toStartOf="@id/linlay1"
                 android:id="@+id/qtordineProd5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="roba5"
                 android:textAppearance="?attr/textAppearanceBodyMedium"
-                android:textColor="?android:attr/textColorSecondary" />
+                android:textColor="?android:attr/textColorSecondary"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@id/linlay1"
+                app:layout_constraintTop_toBottomOf="@id/qtordineProd4" />
 
 
             <TextView
-                app:layout_constraintTop_toBottomOf="@id/qtordineProd5"
-                app:layout_constraintStart_toStartOf="@id/linlay1"
                 android:id="@+id/qtordineProd6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="roba6"
                 android:textAppearance="?attr/textAppearanceBodyMedium"
-                android:textColor="?android:attr/textColorSecondary" />
+                android:textColor="?android:attr/textColorSecondary"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@id/linlay1"
+                app:layout_constraintTop_toBottomOf="@id/qtordineProd5" />
 
             <TextView
-                app:layout_constraintTop_toBottomOf="@id/qtordineProd6"
-                app:layout_constraintStart_toStartOf="@id/linlay1"
                 android:id="@+id/qtordineProd7"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="roba7"
                 android:textAppearance="?attr/textAppearanceBodyMedium"
-                android:textColor="?android:attr/textColorSecondary" />
+                android:textColor="?android:attr/textColorSecondary"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@id/linlay1"
+                app:layout_constraintTop_toBottomOf="@id/qtordineProd6" />
 
+            <!-- nomi piatti -->
+
+            <TextView
+                android:id="@+id/nome_ordineProd1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="x Pasta in bianco"
+                android:textAppearance="?attr/textAppearanceBodyMedium"
+                android:textColor="?android:attr/textColorSecondary"
+                app:layout_constraintBottom_toBottomOf="@id/qtordineProd1"
+                app:layout_constraintStart_toEndOf="@id/qtordineProd1" />
+
+
+            <TextView
+                android:id="@+id/nome_ordineProd2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="x  Lasagna"
+                android:textAppearance="?attr/textAppearanceBodyMedium"
+                android:textColor="?android:attr/textColorSecondary"
+                app:layout_constraintBottom_toBottomOf="@id/qtordineProd2"
+                app:layout_constraintStart_toEndOf="@id/qtordineProd2" />
+
+
+            <TextView
+                android:id="@+id/nome_ordineProd3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="x Pasta al pesto"
+                android:textAppearance="?attr/textAppearanceBodyMedium"
+                android:textColor="?android:attr/textColorSecondary"
+                app:layout_constraintBottom_toBottomOf="@id/qtordineProd3"
+                app:layout_constraintStart_toEndOf="@id/qtordineProd3" />
+
+
+            <TextView
+                android:id="@+id/nome_ordineProd4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="x Cotoletta"
+                android:textAppearance="?attr/textAppearanceBodyMedium"
+                android:textColor="?android:attr/textColorSecondary"
+                app:layout_constraintBottom_toBottomOf="@id/qtordineProd4"
+                app:layout_constraintStart_toEndOf="@id/qtordineProd4" />
+
+
+            <TextView
+                android:id="@+id/nome_ordineProd5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="x Bistecca"
+                android:textAppearance="?attr/textAppearanceBodyMedium"
+                android:textColor="?android:attr/textColorSecondary"
+                app:layout_constraintBottom_toBottomOf="@id/qtordineProd5"
+                app:layout_constraintStart_toEndOf="@id/qtordineProd5" />
+
+
+            <TextView
+                android:id="@+id/nome_ordineProd6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="x Tiramisù"
+                android:textAppearance="?attr/textAppearanceBodyMedium"
+                android:textColor="?android:attr/textColorSecondary"
+                app:layout_constraintBottom_toBottomOf="@id/qtordineProd6"
+                app:layout_constraintStart_toEndOf="@id/qtordineProd6" />
+
+            <TextView
+                android:id="@+id/nome_ordineProd7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="x Crostata ai frutti di bosco"
+                android:textAppearance="?attr/textAppearanceBodyMedium"
+                android:textColor="?android:attr/textColorSecondary"
+                app:layout_constraintBottom_toBottomOf="@id/qtordineProd7"
+                app:layout_constraintStart_toEndOf="@id/qtordineProd7" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

@@ -76,13 +76,10 @@ class OrdiniAdapter :
         holder.textprod5.text = currentDocumentSnapshot["prod5"].toString()
         holder.textprod6.text = currentDocumentSnapshot["prod6"].toString()
         holder.textprod7.text = currentDocumentSnapshot["prod7"].toString()
-
-
-
     }
 
     fun getDocumentoSnapshotAt(position: Int): DocumentSnapshot {
         return getItem(position)
     }
-    
+
 }
