@@ -6,9 +6,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <!-- style="?attr/floatingActionButtonLargeStyle" applica questo attributo per farlo rotondo il pulsante -->
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:id="@+id/confermaOrdineFab"
-        style="?attr/floatingActionButtonLargeStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
